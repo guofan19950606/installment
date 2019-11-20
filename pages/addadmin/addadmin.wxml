@@ -1,0 +1,56 @@
+<navBar title='添加管理员' background='#fff' back="{{true}}" home="{{false}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+<!--pages/editAdmin/editAdmin.wxml-->
+<view class="editAdmin">
+
+  <view class="first">
+    <view class="info">手机号</view>
+    <input type="number" placeholder="请输入手机号" maxlength="11" bindinput="telphone" value="{{telphone}}" />
+  </view>
+
+  <view class="first">
+    <view class="info">姓名</view>
+    <input maxlength="20" placeholder="请输入姓名" type="text" bindinput="daminName" value="{{daminName}}" />
+  </view>
+
+  <view class="first">
+    <view class="info">邮箱</view>
+    <input type="text" placeholder="请输入邮箱" value="{{emailValue}}" bindinput="emailValue" />
+  </view>
+
+  <view class="first">
+    <view class="info">输入密码</view>
+    <input maxlength="14" placeholder="请输入密码" password="true" type="digit" value="{{passwordNum}}" bindinput="passwordNum" />
+  </view>
+
+  <view class="first">
+    <view class="info">确认密码</view>
+    <input maxlength="14" placeholder="请确认密码" password="true" type="digit" value="{{passwordNumAgain}}" bindinput="passwordNumAgain" />
+  </view>
+
+  <!-- 复选框 -->
+  <view class="first">
+    <view class="info">角色权限</view>
+    <view class="checkboxMsg">
+      <checkbox-group bindchange="checkboxChange">
+        <label class="choose" wx:for="{{list}}" wx:key="key">
+          <checkbox value="{{item.id}},{{item.name}}" checked="{{item.isChecked}}" class="edit" />{{item.name}}
+        </label>
+      </checkbox-group>
+    </view>
+  </view>
+  <!-- 下拉框 -->
+  <!-- <view class="msg_list">
+    <view class="msg_left">状态管理</view>
+    <view class="msg_right">
+      <picker bindchange="bindPicker_manage" value="{{manage_index}}" range="{{bindPicker_manage}}">
+        <view class="picker" data-id='{{manage_index}}'>{{bindPicker_manage[manage_index]}}</view>
+      </picker>
+    </view>
+  </view> -->
+</view>
+<!-- 确认按钮 -->
+<view class="button">
+  <view class="sure">
+    <button bindtap="sureBtn" class="savaButton">确认</button>
+  </view>
+</view>

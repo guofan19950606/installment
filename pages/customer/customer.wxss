@@ -1,0 +1,67 @@
+.customer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin {
+  width: 95%;
+  margin: 0 auto;
+  box-shadow: 5rpx 0 20rpx 5rpx #d5d5d5;
+  /* margin-top: 30rpx; */
+  margin-top:15rpx;
+  margin-bottom:15rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  box-sizing: content-box;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.adminbox {
+  width: 90%;
+  margin: 0 auto;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.customerlist {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.adminone {
+  display: flex;
+  justify-content: space-between;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.materils {
+  display: flex;
+  flex-direction: row;
+}
+
+.band_card {
+  width: 141rpx !important;
+}
+
+.materils .meter {
+  font-size: 24rpx;
+  width: 116rpx;
+  padding: 10rpx 8rpx;
+  border: 1px solid #d5d5d5;
+  color: #4462fe;
+  margin-bottom: 21rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  margin-right: 135rpx;
+}
+
+.materils .meter:last-child {
+  margin-right: 0;
+}

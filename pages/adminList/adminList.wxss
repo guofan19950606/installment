@@ -1,0 +1,49 @@
+/* pages/adminList/adminList.wxss */
+.contact_list {
+  width: 713rpx;
+  margin: 0 auto;
+  border-radius: 20rpx;
+  opacity: 100%;
+  box-shadow: 5rpx 0 20rpx 5rpx #d5d5d5;
+  margin-bottom: 30rpx;
+  margin-top: 30rpx;
+  background: #fff;
+}
+.msg_list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+  flex-flow: row nowrap;
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 52rpx;
+  margin-right: 38rpx;
+  padding-top: 24rpx;
+  padding-bottom: 23rpx
+}
+
+.msg_left {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.msg_right {
+  /* height: 71rpx;
+  line-height: 71rpx; */
+  font-size: 28rpx;
+  color: #999;
+}
+.msg_right text{
+  color: #999;
+  width: 100rpx;
+}
+.action{
+  width: 450rpx;
+}
+.green{
+  color: #2DCA97
+}
+.red{
+  color:#FB3651;
+}

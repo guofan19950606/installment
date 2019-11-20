@@ -1,0 +1,37 @@
+<navBar title='管理员列表' background='#fff' back="{{true}}" home="{{true}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+<!--pages/adminList/adminList.wxml-->
+<view class='contactMsg'>
+  <view class='contact_list' wx:for="{{lists}}" wx:for-item="list" wx:key="index" bindtap="updateclick" data-text="{{list}}">
+    <view class="msg_list">
+      <view class='msg_left'>管理员姓名</view>
+      <view class='msg_right'>{{list.userName}}</view>
+    </view>
+
+    <view class="msg_list">
+      <view class='msg_left'>联系电话</view>
+      <view class='msg_right'>{{list.phoneNo}}</view>
+    </view>
+
+    <view class="msg_list">
+      <view class='msg_left'>电子邮箱</view>
+      <view class='msg_right'>{{list.email}}</view>
+    </view>
+    <view class="msg_list">
+      <view class='msg_left action'>角色</view>
+      <view>
+        <view class='msg_right ellipsis' wx:for="{{list.roles}}" wx:key="key">
+          <text wx:if="{{item == '1'}}">超级管理员</text>
+          <text wx:if="{{item == '2'}}">机构入驻管理</text>
+          <text wx:if="{{item == '3'}}">机构课程管理</text>
+          <text wx:if="{{item == '4'}}">客户资料管理</text>
+          <text wx:if="{{item == '5'}}">客户资料审核</text>
+        </view>
+      </view>
+    </view>
+    <view class="msg_list">
+      <view class='msg_left'>状态</view>
+      <view wx:if="{{list.managerState == 2}}" class='msg_right {{list.managerState == 2 ?"red":""}}'>禁用</view>
+      <view class='msg_right {{list.managerState == 1?"green":""}}' wx:if="{{list.managerState == 1}}">启用</view>
+    </view>
+  </view>
+</view>

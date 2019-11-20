@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/home/home",
+    "pages/joinorganization/jionorganization",
+    "pages/person/person",
+    "pages/adminList/adminList",
+    "pages/audit/audit",
+    "pages/addcourse/addcourse",
+    "pages/organization/organization",
+    "pages/checkorganization/checkorganization",
+    "pages/bindBankcard/bindBankcard",
+    "pages/course/course",
+    "pages/customer/customer",
+    "pages/selectOrgan/selectOrgan",
+    "pages/contactsMsg/contactsMsg",
+    "pages/realname/realname",
+    "pages/renzMsg/renzMsg",
+    "pages/editAdmin/editAdmin",
+    "pages/addnum/addnum",
+    "pages/addadmin/addadmin",
+    "pages/userDetail/userDetail",
+    "pages/user/user"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "navBar": "/components/navBar/navBar"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "images/bottwo.png",
+        "selectedIconPath": "images/bottwoup.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "iconPath": "images/botone.png",
+        "selectedIconPath": "images/botoneup.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

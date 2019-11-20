@@ -1,0 +1,43 @@
+<navBar title='银行卡信息' background='#fff' back="{{true}}" home="{{false}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick">
+</navBar>
+<!-- 银行卡 -->
+<view class="containers">
+  <form bindsubmit="formSubmit">
+    <view class="bind_bc_form">
+      <label class="bind_bc_form_label">开户行名称</label>
+      <picker bindchange="contactsMsg_relation" value="{{contactsMsg_index}}" range="{{contactsMsg_relation}}">
+        <view class="picker" data-id='{{contactsMsg_index}}'>
+          <text>{{contactsMsg_relation[contactsMsg_index]}}</text>
+          <view>
+            <image src="/images/arrow_right.png"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="bind_bc_form">
+      <label class="bind_bc_form_label">真实姓名</label>
+      <input type="text" name="bankcardname" placeholder='请输入真实姓名' class="bind_bc_form_inp" value="{{bankcardname}}" bindinput="bankcardname" />
+    </view>
+    <view class="bind_bc_form">
+      <label class="bind_bc_form_label">银行卡号</label>
+      <input type="number" name="bankNum" placeholder='请输入银行卡号' class="bind_bc_form_inp" bindinput="bankNum" value="{{bankNum}}" />
+    </view>
+    <view class="bind_bc_form">
+      <label class="bind_bc_form_label">预留手机号</label>
+      <input type="number" placeholder='请输入预留手机号' maxlength="11" class="bind_bc_form_inp" name="phone" value="{{phone}}" bindinput="phone" />
+    </view>
+    <view class="bind_bc_form phone">
+      <label class="bind_bc_form_label">验证码</label>
+      <view class="bind_bc_code">
+        <input type="number" name="code" value="{{inputCode}}" class="phoneinp" placeholder='请输入验证码' bindinput="inputCode" />
+        <view wx:if="{{send}}" class="sendMsg" bindtap="sendMsg">发送验证码</view>
+        <view wx:if="{{alreadySend}}" class="sendMsg">{{second+"s"}}后重发</view>
+      </view>
+    </view>
+    <view class="bind_bc_form">
+      <label class="bind_bc_form_label">备注信息</label>
+      <textarea placeholder="请输入备注信息" value="{{remarks}}" bindinput="remarks" name="remarks" bindinput="remarks"></textarea>
+    </view>
+    <button class="loginBtn" form-type="submit" style="border-bottom:100rpx;">确定</button>
+  </form>
+</view>

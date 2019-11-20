@@ -1,0 +1,45 @@
+<navBar title='添加机构信息' background='#fff' back="{{true}}" home="{{false}}" bindback="handlerGobackClick"       bindhome="handlerGohomeClick"></navBar>
+<view class="organization">
+  <!-- 添加机构信息 -->
+  <view class="contanier">
+    <!-- <view class="students_list">
+      <view>共借人名称</view>
+      <input type="text" placeholder="请输入共借人名称" value="{{jobwaiting_name}}"  />
+    </view> -->
+    <view class="students_list">
+      <view>机构名称</view>
+      <input type="text" placeholder="请输入机构名称" value="{{eduName}}" bindinput="org_eduName" />
+    </view>
+    <view class="students_list">
+      <view>机构法人</view>
+      <input type="text" placeholder="请输入机构法人" value="{{eduLegalPerson}}"  bindinput="org_eduLegalPerson" />
+    </view>
+    <view class="students_list">
+      <view>机构联系人</view>
+      <input type="text" placeholder="请输入机构联系人" value="{{eduContacts}}"   bindinput="org_eduContacts"/>
+    </view>
+    <view class="students_list">
+      <view>机构联系地址</view>
+      <input type="text" placeholder="请输入机构联系地址" value="{{eduAddress}}"  bindinput="org_eduAddress" />
+    </view>
+    <view class="students_list">
+      <view>机构联系电话</view>
+      <input type="text" placeholder="请输入机构联系电话" value="{{eduConPhone}}"  bindinput="org_eduConPhone" />
+    </view>
+    <view class="students_list">
+      <view>机构联系邮箱</view>
+      <input type="text" placeholder="请输入机构联系邮箱" value="{{eduConEmail}}"  bindinput="org_eduConEmail" />
+    </view>
+    <view class="students_list">
+      <view>机构开户行名称</view>
+      <input type="text" placeholder="请输入机构开户行名称" value="{{eduBankName}}"   bindinput="org_eduBankName"/>
+    </view>
+    <view class="students_list">
+      <view>机构银行账户</view>
+      <input type="text" placeholder="请输入机构银行账户" value="{{eduBankNum}}"   bindinput="org_eduBankNum"/>
+    </view>
+  </view>
+  <view class="nextBtn" bindtap="jobwaiting">
+    保存
+  </view>
+</view>

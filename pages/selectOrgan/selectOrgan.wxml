@@ -1,0 +1,53 @@
+<navBar title='选择机构课程' background='#fff' back="{{true}}" home="{{false}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+<!--pages/select_organ/select_organ.wxml-->
+
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view class="bind_bc_form">
+      <label class="bind_bc_form_label">机构代码</label>
+      <input type="text" name="organcode" id="" placeholder='请输入机构代码' class="bind_bc_form_inp" value="{{organcode}}" />
+    </view>
+    <!-- 扫码时, 机构校验码隐藏-->
+    <view class="bind_bc_form" hidden="{{codeHide}}">
+      <label class="bind_bc_form_label">机构校验码</label>
+      <input type="number" name="organcheckcode" id="" placeholder='请输入机构校验码' class="bind_bc_form_inp" value="{{organcheckcode}}" />
+    </view>
+    <view class="bind_bc_form">
+      <label class="bind_bc_form_label">机构名称</label>
+      <input type="number" placeholder='请输入机构名称' class="bind_bc_form_inp" name="organname" value="{{organname}}" />
+    </view>
+    <view class="organ_title">机构课程信息</view>
+    <view class="organ_course_info_picker">
+      <view class="course_label2">课程内容</view>
+      <picker bindchange="contactsMsg_relation"  value="{{contactsMsg_index}}" range="{{contactsMsg_relation}}">
+        <view class="picker_select">
+        <block wx:if="{{onshowstu == 0}}">
+          <text>{{curContent}}</text>
+          </block>
+          <block wx:else>
+          <text>{{contactsMsg_relation[contactsMsg_index]}}</text>
+          </block>
+          <view>
+            <image src="/images/arrow_right.png"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="organ_course_info">
+      <label class="course_label">课时计划</label>
+      <input type="number" name="courseplan" id="" placeholder='请输入课时计划' class="course_inp" value="{{courseplan}}月" />
+    </view>
+    <view class="organ_course_info">
+      <label class="course_label">课程价格</label>
+      <input type="number" name="courseprice" id="" placeholder='请输入课程价格' class="course_inp" value="{{courseprice}}RMB" />
+    </view>
+    <view class="organ_course_info">
+      <label class="course_label">备注信息</label>
+    </view>
+    <view>
+      <textarea placeholder="请输入备注信息" name="mark" value="{{mark}}"></textarea>
+    </view>
+
+    <button class="loginBtn" form-type="submit">确认</button>
+  </form>
+</view>

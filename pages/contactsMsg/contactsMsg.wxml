@@ -1,0 +1,95 @@
+<navBar title='联系人' background='#fff' back="{{true}}" home="{{false}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+<!-- 联系人 -->
+<view class="conlist">
+  <view class="contactsMsg">
+    <view class="contactsMsg_list">
+      <view>
+        <text>*</text> 联系人
+      </view>
+      <input type="text" placeholder="请输入联系人" value="{{contactsMsg_person}}" bindinput="contactsMsg_person" />
+    </view>
+    <view class="contactsMsg_list">
+      <view>
+        <text>*</text> 手机号
+      </view>
+      <input type="number" placeholder="请输入手机号" value="{{contactsMsg_phone}}" bindinput="contactsMsg_phone" />
+    </view>
+    <view class="contactsMsg_list">
+      <view>
+        <text>*</text> 关系
+      </view>
+      <picker bindchange="contactsMsg_relation" value="{{contactsMsg_index}}" range="{{contactsMsg_relation}}">
+        <view class="picker" data-id='{{contactsMsg_index}}'>
+          <text>{{contactsMsg_relation[contactsMsg_index]}}</text>
+          <view>
+            <image src="/images/arrow_right.png"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="contactsMsg">
+    <view class="contactsMsg_list">
+      <view>
+        <text>*</text> 联系人
+      </view>
+      <input type="text" placeholder="请输入联系人" value="{{contactsMsg_person2}}" bindinput="contactsMsg_person2" />
+    </view>
+    <view class="contactsMsg_list">
+      <view>
+        <text>*</text> 手机号
+      </view>
+      <input type="number" placeholder="请输入手机号" value="{{contactsMsg_phone2}}" bindinput="contactsMsg_phone2" />
+    </view>
+    <view class="contactsMsg_list">
+      <view>
+        <text>*</text> 关系
+      </view>
+      <picker bindchange="contactsMsg_relation2" value="{{contactsMsg_index2}}" range="{{contactsMsg_relation2}}">
+        <view class="picker" data-id='{{contactsMsg_index2}}'>
+          <text>{{contactsMsg_relation2[contactsMsg_index2]}}</text>
+          <view>
+            <image src="/images/arrow_right.png"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="contactsMsg">
+    <view class="contactsMsg_list">
+      <view>
+        <text>*</text> 联系人
+      </view>
+      <input type="text" placeholder="请输入联系人" value="{{contactsMsg_person3}}" bindinput="contactsMsg_person3" />
+    </view>
+    <view class="contactsMsg_list">
+      <view>
+        <text>*</text> 手机号
+      </view>
+      <input type="number" placeholder="请输入手机号" value="{{contactsMsg_phone3}}" bindinput="contactsMsg_phone3" />
+    </view>
+    <view class="contactsMsg_list">
+      <view>
+        <text>*</text> 关系
+      </view>
+      <picker bindchange="contactsMsg_relation3" value="{{contactsMsg_index3}}" range="{{contactsMsg_relation3}}">
+        <view class="picker" data-id='{{contactsMsg_index3}}'>
+          <text>{{contactsMsg_relation3[contactsMsg_index3]}}</text>
+          <view>
+            <image src="/images/arrow_right.png"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="contactsMsg_list">
+      <view>
+        备注信息
+      </view>
+      <!-- <input type="text" placeholder="请输入手机号" value="{{contactsMsg_phone3}}" bindinput="contactsMsg_phone3" /> -->
+      <textarea placeholder="请输入备注信息" value="{{remarks}}" bindinput="remarks"></textarea>
+    </view>
+  </view>
+  <view class="contactsMsgBtn" bindtap="contactsMsgBtn">
+    确认
+  </view>
+</view>

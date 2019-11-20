@@ -1,0 +1,119 @@
+/* pages/editAdmin/editAdmin.wxss */
+.editAdmin{
+  background: #FFFFFF;
+  border-top:0.5rpx solid #C0C0C0;
+}
+.first,.msg_list{
+  width: 90%;
+  display: flex;
+  margin: 0 auto;
+}
+.first{
+  border-bottom:0.5rpx solid #eee;
+  align-items: center;
+  padding: 16rpx;
+}
+
+/* 手机号、姓名等样式 */
+.info{
+  width:112rpx;
+  font-weight: Regular;
+  color:#333333;
+  font-size: 28rpx;
+
+}
+/* 内容样式 */
+input{
+  font-family: MicrosoftYaHei;
+  font-weight: Regular;
+  color:#333333;
+  font-size: 28rpx;
+  margin-left: 70rpx;
+  flex: 1;
+}
+/* 复选框整体样式 */
+checkbox-group{
+  width:500rpx;
+  margin-left:35rpx;
+  margin-top: 16rpx;
+}
+/* 复选框字体样式 */
+label{
+  width: 202rpx;
+  display:inline-block;
+  font-size: 24rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: Regular;
+  color:#3E3E3E;
+  padding-top: 18rpx;
+  padding-left:20rpx;
+}
+/* 复选框体样式 */
+.edit{
+  transform: scale(0.7,0.7);
+}
+/* 复选框被选中后的样式 */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #4462FE;
+  border-color:#4462FE;
+  color:#FFFFFF;
+}
+/* 上拉菜单样式 */
+.msg_list{
+  width:705rpx;
+	height:80rpx;
+	line-height: 80rpx;
+	border-bottom: 1rpx solid #eee;
+	display: flex;
+  justify-content: space-between;
+	flex-flow: row nowrap;
+	font-size: 26rpx;
+	color:#999;
+  margin-left: 25rpx;
+}
+.msg_left{
+	font-size: 26rpx;
+	color:#333;
+  margin-left: 11rpx;
+}
+.msg_right{
+  height:71rpx;
+  line-height: 71rpx;
+  font-size: 26rpx;
+  color:#999;
+}
+.picker{
+  width:500rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+  text-align: right;
+}
+
+
+/* 确认按钮样式 */
+.button{
+  padding: 58rpx 67rpx;
+  width:100%;
+  display:flex;                  
+  justify-content: center;
+  flex: 1;
+}
+.sure{
+  width: 100%;
+  position: relative;
+}
+.savaButton{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #4462FE;
+  border-radius: 50rpx;
+  font-size: 34rpx;
+  color:#FFFFFF;
+  position: absolute;
+  bottom: 0;
+}
+

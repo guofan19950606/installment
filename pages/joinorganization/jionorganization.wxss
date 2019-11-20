@@ -1,0 +1,46 @@
+/* pages/joinorganization/jionorganization.wxss */
+
+.joinorganization {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.adminlist {
+  flex: 1;
+  overflow-y: auto;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.admin {
+  background: #fff;
+  width: 95%;
+  margin: 0 auto;
+  height: 357rpx;
+  border-radius: 10rpx;
+  /* margin-top: 30rpx; */
+   margin-top:15rpx;
+  margin-bottom:15rpx;
+  box-shadow: 5rpx 0 20rpx 5rpx #d5d5d5;
+}
+
+.max {
+  margin-right: 10rpx;
+}
+
+.adminbox {
+  width: 90%;
+  margin: 0 auto;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.adminone {
+  display: flex;
+  justify-content: space-between;
+  height: 70rpx;
+  line-height: 70rpx;
+}

@@ -1,0 +1,80 @@
+/* taber切换 */
+.navigation_Cut {
+  padding: 25rpx 18rpx 10rpx 19rpx;
+  height: 61rpx;
+  box-sizing: content-box;
+}
+
+.navigation_Content {
+  height: 100%;
+  background: #fff;
+  display: flex;
+  padding: 0rpx 52rpx 0rpx 71rpx;
+  justify-content: space-between;
+}
+
+.navigation_Item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.navigation_Text {
+  color: #d5d5d5;
+  line-height: 24rpx;
+  margin-bottom: 10rpx;
+  display: block;
+  margin-top: 17rpx;
+}
+
+.navigation_Image {
+  height: 4rpx;
+}
+
+.nav-hover {
+  color: #333 !important;
+}
+
+/* 用户详情列表 */
+
+.userinfo_Detail_List {
+  padding: 20rpx 18rpx 0rpx 19rpx;
+  flex: 1;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.userinfo_Detail_List_Item {
+  background: white;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+}
+
+.userinfo_Item {
+  padding: 24rpx 38rpx 23rpx 52rpx;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.userinfo_Item text {
+  line-height: 24rpx;
+  color: #333;
+}
+
+.userinfo_Item:last-child {
+  border: none;
+}
+
+.green {
+  color: #2dca97 !important;
+}
+
+.red {
+  color: #fb3651 !important;
+}

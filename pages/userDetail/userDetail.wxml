@@ -1,0 +1,327 @@
+<navBar title='客户审核' background='#fff' back="{{true}}" home="{{false}}" bindback="handlerGobackClick"       bindhome="handlerGohomeClick"></navBar>
+<view class="audit_Userinfo" wx:if="{{userDetailInfo}}">
+    <!-- 客户基本信息(企业主) -->
+    <view class="userinfo_Basics" wx:if="{{userDetailInfo.realMap.jobType == 3}}">
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">真实姓名</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.realName}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">职业类型</text>
+            <text class="app-fz26 gray">企业主</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">企业名称</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.enterpriseName}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">企业地址</text>
+            <view class="userinfo_site" bindtap="activeIsShow">
+              <text class="app-fz26 gray ellipsis">{{userDetailInfo.realMap.enterpriseAddress}}</text>
+              <i class="iconfont icon-down {{activeIsShow == true ? 'active_down':''}}"></i>
+            </view>
+        </view>
+        <view class="userinfo_Basics_Item address_Detail" wx:if="{{activeIsShow}}">
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.enterpriseAddress}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">社会统一信用代码</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.creditCode}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">手机号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.rnaPhone}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">QQ号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.qqNum}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">微信号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.weChat}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">现居地址</text>
+            <view class="userinfo_site" bindtap="siteIsshow">
+              <text class="app-fz26 gray ellipsis">{{userDetailInfo.realMap.currentAddress}}</text>
+              <i class="iconfont icon-down {{siteIsshow == true ? 'active_down':''}}"></i>
+            </view>
+        </view>
+        <view class="userinfo_Basics_Item address_Detail" wx:if="{{siteIsshow}}">
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.currentAddress}}</text>
+        </view>
+    </view>
+    <!-- 客户基本信息(学生) -->
+    <view class="userinfo_Basics" wx:if="{{userDetailInfo.realMap.jobType == 1}}">
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">真实姓名</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.realName}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">职业类型</text>
+            <text class="app-fz26 gray">学生</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">学校名称</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.schoolName}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">学校地址</text>
+            <view class="userinfo_site" bindtap="activeIsShow">
+              <text class="app-fz26 gray ellipsis">{{userDetailInfo.realMap.schoolAddress}}</text>
+              <i class="iconfont icon-down {{activeIsShow == true ? 'active_down':''}}"></i>
+            </view>
+        </view>
+        <view class="userinfo_Basics_Item address_Detail" wx:if="{{activeIsShow}}">
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.schoolAddress}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">手机号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.rnaPhone}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">QQ号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.qqNum}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">微信号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.weChat}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">电子邮箱</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.email}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">现居地址</text>
+            <view class="userinfo_site" bindtap="siteIsshow">
+              <text class="app-fz26 gray ellipsis">{{userDetailInfo.realMap.currentAddress}}</text>
+              <i class="iconfont icon-down {{siteIsshow == true ? 'active_down':''}}"></i>
+            </view>
+        </view>
+        <view class="userinfo_Basics_Item address_Detail" wx:if="{{siteIsshow}}">
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.currentAddress}}</text>
+        </view>
+    </view>
+    <!-- 客户基本信息(待业) -->
+    <view class="userinfo_Basics" wx:if="{{userDetailInfo.realMap.jobType == 4}}">
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">真实姓名</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.realName}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">职业类型</text>
+            <text class="app-fz26 gray">待业</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">共借人名称</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.commonName}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">共借人电话</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.commonPhone}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">共借人地址</text>
+            <view class="userinfo_site" bindtap="activeIsShow">
+              <text class="app-fz26 gray ellipsis">{{userDetailInfo.realMap.commonAddress}}</text>
+              <i class="iconfont icon-down {{activeIsShow == true ? 'active_down':''}}"></i>
+            </view>
+        </view>
+        <view class="userinfo_Basics_Item address_Detail" wx:if="{{activeIsShow}}">
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.commonAddress}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">借款人手机号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.rnaPhone}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">借款人QQ号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.qqNum}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">借款人微信号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.weChat}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">借款人电子邮箱</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.email}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">借款人现居地址</text>
+            <view class="userinfo_site" bindtap="siteIsshow">
+              <text class="app-fz26 gray ellipsis">{{userDetailInfo.realMap.currentAddress}}</text>
+              <i class="iconfont icon-down {{siteIsshow == true ? 'active_down':''}}"></i>
+            </view>
+        </view>
+        <view class="userinfo_Basics_Item address_Detail" wx:if="{{siteIsshow}}">
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.currentAddress}}</text>
+        </view>
+    </view>
+    <!-- 客户基本信息(公司职员) -->
+    <view class="userinfo_Basics" wx:if="{{userDetailInfo.realMap.jobType == 2}}">
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">真实姓名</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.realName}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">职业类型</text>
+            <text class="app-fz26 gray">公司职员</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">公司名称</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.corporateName}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">公司地址</text>
+            <view class="userinfo_site" bindtap="activeIsShow">
+              <text class="app-fz26 gray ellipsis">{{userDetailInfo.realMap.corporateAddress}}</text>
+              <i class="iconfont icon-down {{activeIsShow == true ? 'active_down':''}}"></i>
+            </view>
+        </view>
+        <view class="userinfo_Basics_Item address_Detail" wx:if="{{activeIsShow}}">
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.corporateAddress}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">公司职位</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.corporatePosition}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">月收入</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.position}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">QQ</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.qqNum}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">微信号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.weChat}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">电子邮箱</text>
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.email}}</text>
+        </view>
+        <view class="userinfo_Basics_Item">
+            <text class="app-fz26 black">现居地址</text>
+            <view class="userinfo_site" bindtap="siteIsshow">
+              <text class="app-fz26 gray ellipsis">{{userDetailInfo.realMap.currentAddress}}</text>
+              <i class="iconfont icon-down {{siteIsshow == true ? 'active_down':''}}"></i>
+            </view>
+        </view>
+        <view class="userinfo_Basics_Item address_Detail" wx:if="{{siteIsshow}}">
+            <text class="app-fz26 gray">{{userDetailInfo.realMap.currentAddress}}</text>
+        </view>
+    </view>
+    <!-- 客户证件信息 -->
+    <view class="userinfo_card">
+        <text class="app-fz26 black userinfo_Card_Msg_text">身份证正反面</text>
+        <view class="userinfo_card_picture">
+            <view class="userinfo_card_image">
+              <image class="ddNoPositive" src="{{ddNoPositive}}">
+              </image>
+            </view>
+             <view class="userinfo_card_image">
+              <image class="ddNoBack" src="{{ddNoBack}}">
+              </image>
+            </view>
+        </view>
+        <text class="app-fz26 black userinfo_Card_Msg_text rests_card">其他证件</text>
+        <view class="userinfo_restcard_picture">
+          <view class="userinfo_card_image" wx:for="{{ddOther}}" wx:key="key">
+            <image class="itemOther" src="{{item}}">
+            </image>
+          </view>
+        </view>
+    </view>
+    <!-- 银行信息 -->
+    <view class="userinfo_Basics bank_info">
+        <view class="userinfo_Basics_Item userinfo_Basics_bankinfo">
+            <text class="app-fz26 black">开户行</text>
+            <text class="app-fz26 gray">{{userDetailInfo.bankMap.bcOpeningBank}}</text>
+        </view>
+        <view class="userinfo_Basics_Item userinfo_Basics_bankinfo">
+            <text class="app-fz26 black">真实姓名</text>
+            <text class="app-fz26 gray">{{userDetailInfo.bankMap.realName}}</text>
+        </view>
+        <view class="userinfo_Basics_Item userinfo_Basics_bankinfo">
+            <text class="app-fz26 black">银行卡号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.bankMap.bcCardNum}}</text>
+        </view>
+        <view class="userinfo_Basics_Item userinfo_Basics_bankinfo">
+            <text class="app-fz26 black">预留手机号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.bankMap.bcPhone}}</text>
+        </view>
+    </view>
+    <!-- 联系人信息 -->
+    <view class="userinfo_Basics linkman_info">
+        <view class="userinfo_Basics_Item userinfo_Basics_linkman">
+            <text class="app-fz26 black">联系人</text>
+            <text class="app-fz26 gray">{{userDetailInfo.contactMap.ciContact1}}</text>
+        </view>
+        <view class="userinfo_Basics_Item userinfo_Basics_linkman">
+            <text class="app-fz26 black">手机号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.contactMap.ciPhone1}}</text>
+        </view>
+        <view class="userinfo_Basics_Item userinfo_Basics_linkman">
+            <text class="app-fz26 black">关系</text>
+             <text class="app-fz26 gray" wx:if="{{userDetailInfo.contactMap.ciRelationship1 == 1}}">亲属</text>
+            <text class="app-fz26 gray" wx:if="{{userDetailInfo.contactMap.ciRelationship1 == 2}}">朋友</text>
+            <text class="app-fz26 gray" wx:if="{{userDetailInfo.contactMap.ciRelationship1 == 3}}">配偶</text>
+        </view>
+        <view class="userinfo_Basics_Item userinfo_Basics_linkman">
+            <text class="app-fz26 black">联系人</text>
+            <text class="app-fz26 gray">{{userDetailInfo.contactMap.ciContact2}}</text>
+        </view>
+        <view class="userinfo_Basics_Item userinfo_Basics_linkman">
+            <text class="app-fz26 black">手机号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.contactMap.ciPhone2}}</text>
+        </view>
+        <view class="userinfo_Basics_Item userinfo_Basics_linkman">
+            <text class="app-fz26 black">关系</text>
+             <text class="app-fz26 gray" wx:if="{{userDetailInfo.contactMap.ciRelationship2 == 1}}">亲属</text>
+            <text class="app-fz26 gray" wx:if="{{userDetailInfo.contactMap.ciRelationship2 == 2}}">朋友</text>
+            <text class="app-fz26 gray" wx:if="{{userDetailInfo.contactMap.ciRelationship2 == 3}}">配偶</text>
+        </view>
+        <view class="userinfo_Basics_Item userinfo_Basics_linkman">
+            <text class="app-fz26 black">联系人</text>
+            <text class="app-fz26 gray">{{userDetailInfo.contactMap.ciContact3}}</text>
+        </view>
+        <view class="userinfo_Basics_Item userinfo_Basics_linkman">
+            <text class="app-fz26 black">手机号</text>
+            <text class="app-fz26 gray">{{userDetailInfo.contactMap.ciPhone3}}</text>
+        </view>
+        <view class="userinfo_Basics_Item userinfo_Basics_linkman">
+            <text class="app-fz26 black">关系</text>
+             <text class="app-fz26 gray" wx:if="{{userDetailInfo.contactMap.ciRelationship3 == 1}}">亲属</text>
+            <text class="app-fz26 gray" wx:if="{{userDetailInfo.contactMap.ciRelationship3 == 2}}">朋友</text>
+            <text class="app-fz26 gray" wx:if="{{userDetailInfo.contactMap.ciRelationship3 == 3}}">配偶</text>
+        </view>
+    </view>
+    <!-- 审核结果 -->
+    <view class="check_Result">
+        <view class="check_Msg">
+            <view class="section app-fz26">
+              <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker">
+                  审核：
+                <view class="picker_content">
+                  {{array[index]}}
+                  <i class="iconfont icon-down"></i>
+                </view>
+                </view>
+              </picker>
+            </view>
+            <!-- fixed="true" -->
+            <view class="section app-fz26">
+                <view class="remark">
+                  备注：
+                <textarea class="remark_content app-fz24" bindinput="watchValue" value="{{textareaValue}}" placeholder-class="placeholderStyle" placeholder="请输入备注信息"></textarea>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 点击按钮保存 -->
+    <view class="button_footer" bindtap="saveInfo">
+        <button class="buttonSava">保存</button>
+    </view>
+</view>

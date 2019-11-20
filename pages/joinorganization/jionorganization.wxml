@@ -1,0 +1,48 @@
+<!--pages/joinorganization/jionorganization.wxml-->
+<navBar title='机构入驻列表' background='#fff' back="{{true}}" home="{{true}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+<view class="joinorganization">
+  <!-- 搜索 -->
+  <view class="search_Box">
+    <view class="search_Msg">
+      <view class="search_Icon">
+        <i class="iconfont icon-sousuo"></i>
+        <input class="app-fz24 search_Input" value="{{inputValue}}" confirm-type="search" bindinput='watchKeyWord' placeholder-style="font-size:24rpx;color:#828282;" placeholder="机构名称、代码、机构联系人、联系人电话" bindblur="EnterInput" />
+      </view>
+      <view class="search_close" wx:if="{{inputLength != 0}}" bindtap='clearInputEvent'>
+        <i class="iconfont icon-guanbi app-fz20"></i>
+      </view>
+    </view>
+  </view>
+  <!-- 机构入驻列表 -->
+  <view class="adminlist">
+    <scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="lower">
+      <view class="admin" wx:for="{{roginlist}}" wx:key="{{index}}">
+        <view class="adminbox" bindtap="orginclick" data-eduNum="{{item.eduNum}}">
+          <view class="adminone">
+            <view>机构名称</view>
+            <view class="adminname">
+              <text class="max">{{item.eduName}}</text>
+              <image src="/images/leftcopy.png" style="width:20rpx;height:20rpx;"></image>
+            </view>
+          </view>
+          <view class="adminone">
+            <text>机构代码</text>
+            <text class="adminname">{{item.eduCode}}</text>
+          </view>
+          <view class="adminone">
+            <text>机构负责人</text>
+            <text class="adminname">{{item.eduContacts}}</text>
+          </view>
+          <view class="adminone">
+            <text>负责人联系方式</text>
+            <text class="adminname">{{item.eduConPhone}}</text>
+          </view>
+          <view class="adminone">
+            <text>注册时间</text>
+            <text class="adminname">{{item.eduInsertTime[0]}}-{{item.eduInsertTime[1]}}-{{item.eduInsertTime[2]}} {{item.eduInsertTime[3]}}:{{item.eduInsertTime[4]}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

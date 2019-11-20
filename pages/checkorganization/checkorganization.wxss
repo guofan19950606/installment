@@ -1,0 +1,99 @@
+/* pages/checkorganization/checkorganization.wxss */
+
+.organization {
+  width: 100%;
+}
+
+.contanier {
+  width: 634rpx;
+  margin: 0 auto;
+}
+
+.students_list {
+  border-bottom: 1px solid #eee;
+}
+
+.students_list view {
+  margin: 30rpx 0 15rpx;
+  font-size: 36rpx;
+  color: #333;
+}
+
+.students_list input {
+  font-size: 28rpx;
+  color: #999;
+  padding: 6rpx;
+}
+
+.nextBtn {
+  width: 616rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 70rpx auto 10rpx;
+  background: #3772ef;
+  font-size: 34rpx;
+  color: #fff;
+  border-radius: 40rpx;
+}
+
+.canvas {
+  height: 230rpx;
+  width: 634rpx;
+  margin: 0 auto;
+  border: 5px solid rgb(223, 159, 62);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50rpx;
+}
+
+.canvasone {
+  width: 156rpx;
+  height: 156rpx;
+}
+
+.canvastwo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.canvastwo .cum {
+  font-size: 26rpx;
+  color: #7d92ff;
+  padding: 10rpx 0;
+}
+
+.canvastwo .cummon {
+  font-size: 32rpx;
+  color: #4462fe;
+  padding: 10rpx 0;
+}
+
+.canvastwo .copycum {
+  font-size: 24rpx;
+  background: #4462fe;
+  border-radius: 20rpx;
+  color: #fff;
+}
+
+.content-car-second .second-code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  position: relative;
+}
+
+.content-car-second .second-code image {
+  width: 350rpx;
+  height: 350rpx;
+  margin-top: 20rpx;
+}
+
+.canvas-box {
+  position: fixed;
+  top: 999999rpx;
+  left: 0;
+}

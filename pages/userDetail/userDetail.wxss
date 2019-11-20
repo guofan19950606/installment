@@ -1,0 +1,182 @@
+/* .audit_Userinfo{
+  overflow-y: auto
+} */
+/* 客户基本信息 */
+.userinfo_Basics{
+  border-top: 1rpx solid #C0C0C0;
+  background: #FFFFFF;
+}
+.userinfo_Basics_Item{
+  padding: 32rpx 33rpx 32rpx 36rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #F8F8F8;
+}
+.userinfo_Basics_Item text{
+  line-height: 26rpx;
+}
+.userinfo_Basics_Item:last-child{
+  border: none;
+}
+.black{
+  color: #333333;
+}
+.gray{
+  color: #707070;
+}
+.userinfo_site{
+  display: flex;
+  align-items: center;
+  width: 138rpx;
+  justify-content: space-between;
+}
+
+.userinfo_site i{
+  font-size: 30rpx;
+  margin-left: 5rpx;
+  display: flex;
+  align-items: center;
+  transform: rotate(-90deg)
+}
+.active_down{
+  transform: rotate(0deg) !important;
+}
+.address_Detail{
+  padding: 32rpx 42rpx;
+}
+/* 客户证件信息 */
+.userinfo_card{
+  padding: 0 34rpx 44rpx 34rpx;
+  background: #FFFFFF;
+  margin-top: 41rpx;
+  margin-bottom: 41rpx;
+}
+.userinfo_Card_Msg_text{
+  display: block;
+  line-height: 26rpx;
+  padding-top: 30rpx;
+  padding-bottom: 24rpx;
+}
+.userinfo_card_picture{
+  display: flex;
+  justify-content: space-between;
+}
+.userinfo_card_image{
+  width: 291rpx;
+  height: 174rpx;
+  background: #BFBFBF;
+}
+.rests_card{
+  padding: 38rpx 0 28rpx 0;
+}
+.userinfo_restcard_picture .userinfo_card_image{
+  display: inline-block;
+  margin-right: 100rpx;
+  margin-bottom: 100rpx;
+}
+.userinfo_restcard_picture .userinfo_card_image:nth-child(2n){
+  margin:0;
+}
+.userinfo_restcard_picture .userinfo_card_image:last-child{
+  margin-bottom: 0;
+}
+.userinfo_restcard_picture .userinfo_card_image:nth-last-child(2){
+  margin-bottom: 0;
+}
+/* 银行信息 */
+.bank_info{
+  border: none;
+  margin-bottom: 41rpx;
+}
+.userinfo_Basics_bankinfo{
+  padding: 29rpx 32rpx 34rpx 35rpx;
+}
+/* 联系人信息 */
+.linkman_info{
+  border:none;
+}
+.userinfo_Basics_linkman{
+  padding: 33rpx 34rpx 32rpx 36rpx;
+}
+/* 审核结果 */
+.check_Result{
+  background: #FFFFFF;
+  padding-top: 68rpx;
+}
+.check_Msg{
+  display: flex;
+  padding: 0 60rpx;
+  flex-direction: column;
+}
+.picker{
+  display: flex;
+  align-items: center;
+}
+.picker text{
+  display: block;
+}
+.picker_content{
+  border: 1rpx solid #BFBFBF;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18rpx 16rpx;
+  line-height: 26rpx;
+  margin-left: 60rpx;
+}
+.section {
+  width: 100%;
+}
+.remark{
+  display: flex;
+  padding-top: 40rpx;
+  padding-bottom: 85rpx;
+}
+.remark_content{
+  border: 1rpx solid #BFBFBF;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+  flex: 1;
+  padding: 9rpx 15rpx;
+  margin-left: 60rpx;
+  height: 280rpx;
+  word-break: break-all;
+
+}
+.placeholderStyle{
+  font-size: 24rpx;
+  color:#B8B8B8;
+}
+.button_footer{
+  padding: 0 67rpx;
+}
+.buttonSava{
+  height: 80rpx;
+  background: #4462FE;
+  border-bottom-left-radius: 40rpx;
+  border-bottom-right-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  border-top-left-radius: 40rpx;
+  margin-top: -40rpx;
+  margin-bottom: 110rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34rpx;
+  color: #FFFFFF;
+}
+/* 去掉滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}

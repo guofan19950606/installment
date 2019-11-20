@@ -1,0 +1,74 @@
+<navBar title='查看机构信息' background='#fff' back="{{true}}" home="{{false}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick">
+</navBar>
+<view class="organization">
+  <!-- 添加机构信息 -->
+  <view class="contanier">
+
+  </view>
+</view>
+<view class="organization">
+  <!-- 添加机构信息 -->
+  <view class="contanier">
+    <!-- <view class="students_list">
+      <view>共借人名称</view>
+      <input type="text" placeholder="请输入共借人名称" value="{{jobwaiting_name}}" />
+    </view> -->
+    <view class="students_list">
+      <view>机构名称</view>
+      <input type="text" placeholder="请输入机构名称" value="{{eduName}}" bindinput="org_eduName" />
+    </view>
+    <view class="students_list">
+      <view>机构法人</view>
+      <input type="text" placeholder="请输入机构法人" value="{{eduLegalPerson}}" bindinput="org_eduLegalPerson" />
+    </view>
+    <view class="students_list">
+      <view>机构联系人</view>
+      <input type="text" placeholder="请输入机构联系人" value="{{eduContacts}}" bindinput="org_eduContacts" />
+    </view>
+    <view class="students_list">
+      <view>机构联系地址</view>
+      <input type="text" placeholder="请输入机构联系地址" value="{{eduAddress}}" bindinput="org_eduAddress" />
+    </view>
+    <view class="students_list">
+      <view>机构联系电话</view>
+      <input type="text" placeholder="请输入机构联系电话" value="{{eduConPhone}}" bindinput="org_eduConPhone" />
+    </view>
+    <view class="students_list">
+      <view>机构联系邮箱</view>
+      <input type="text" placeholder="请输入机构联系邮箱" value="{{eduConEmail}}" bindinput="org_eduConEmail" />
+    </view>
+    <view class="students_list">
+      <view>机构开户行名称</view>
+      <input type="text" placeholder="请输入机构开户行名称" value="{{eduBankName}}" bindinput="org_eduBankName" />
+    </view>
+    <view class="students_list">
+      <view>机构银行账户</view>
+      <input type="text" placeholder="请输入机构银行账户" value="{{eduBankNum}}" bindinput="org_eduBankNum" />
+    </view>
+    <view class="canvas">
+      <view class="canvasone">
+        <image src="{{eduQrCodeUrl}}" bindtap='downloadImg' data-imgurl="{{eduQrCodeUrl}}"></image>
+        <!-- <text class='downCode' bindtap='downloadCode'>下载</text> -->
+      </view>
+      <view class="canvastwo">
+        <text class="cum">你的机构码</text>
+        <text class="cummon">{{eduCode}}</text>
+        <button class="copycum" bindtap='textPasteone'>复制机构码</button>
+      </view>
+      <view class="canvastwo">
+        <text class="cum">你的校验码</text>
+        <text class="cummon">{{eduCheckCode}}</text>
+        <button class="copycum" bindtap='textPastetwo'>复制校验码</button>
+      </view>
+    </view>
+  </view>
+  <view>
+    <!-- 画布，用来画二维码，只用来站位，不用来显示-->
+    <view class="canvas-box">
+      <canvas hidden="{{canvasHidden}}" style="width: 100px;height: 100px;background:#f1f1f1;" canvas-id="mycanvas" />
+    </view>
+  </view>
+  <view class="nextBtn" bindtap="contactBtn">
+    保存
+  </view>
+</view>

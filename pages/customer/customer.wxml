@@ -1,0 +1,52 @@
+<navBar title='客户列表' background='#fff' back="{{true}}" home="{{false}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+<view class="customer">
+  <!-- 搜索 -->
+  <view class="search_Box">
+    <view class="search_Msg">
+      <view class="search_Icon">
+        <i class="iconfont icon-sousuo"></i>
+        <input class="app-fz24 search_Input" value="{{inputValue}}" bindinput='watchKeyWord' placeholder-style="font-size:24rpx;color:#828282;" placeholder="客户名称、联系电话"  bindblur="EnterInput"/>
+      </view>
+      <view class="search_close" wx:if="{{inputLength != 0}}" bindtap='clearInputEvent'>
+        <i class="iconfont icon-guanbi app-fz20"></i>
+      </view>
+    </view>
+  </view>
+  <view class="customerlist">
+     <scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="lower">
+    <view class="admin"  wx:for="{{customerlist}}" wx:key="{{index}}">
+      <view class="adminbox">
+        <view class="adminone">
+          <text>客户姓名</text>
+          <text>{{item.userName}}</text>
+        </view>
+        <view class="adminone">
+          <text>联系电话</text>
+          <text>{{item.phoneNo}}</text>
+        </view>
+        <view class="adminone">
+          <text>培训机构</text>
+          <text>{{item.insName}}</text>
+        </view>
+        <view class="adminone">
+          <text>培训课程</text>
+          <text>{{item.curContent}}</text>
+        </view>
+        <view class="adminone">
+          <text>注册时间</text>
+          <text>{{item.registerTime}}</text>
+        </view>
+        <view class="materils">
+          <text class="meter" bindtap="selectclick" data-num="{{item.userNum}}" data-courseNum="{{item.courseNum}}">选课信息</text>
+          <text class="meter" bindtap="msgclick" data-num="{{item.userNum}}">认证信息</text>
+          <text class="meter band_card" bindtap="bindclick" data-num="{{item.userNum}}">银行卡信息</text>
+        </view>
+        <view class="materils">
+          <text class="meter" bindtap="conclick" data-num="{{item.userNum}}">联系人</text>
+          <text class="meter" bindtap="renzMsgclick" data-num="{{item.userNum}}">证件资料</text>
+        </view>
+      </view>
+    </view>
+    </scroll-view>
+  </view>
+</view>

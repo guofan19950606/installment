@@ -1,0 +1,71 @@
+.about_page {
+  margin: 0 10px;
+}
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  color: #ccc;
+  font-size: 24rpx;
+}
+
+.swiper-tab-item {
+  width: 30%;
+  color: #434343;
+}
+
+.active {
+  color: #59a2f6;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.juzhong {
+  margin: 0 auto;
+}
+
+.domain {
+  background-color: #fff;
+  height: 100%;
+  margin: 0 10px;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.admincontian {
+  width: 100%;
+}
+
+.admin {
+  width: 90%;
+  margin: 0 auto;
+  height: 357rpx;
+  box-shadow: 5rpx 5rpx 5rpx #d5d5d5;
+  margin-top: 30rpx;
+  border-radius: 10rpx;
+}
+
+.adminbox {
+  width: 90%;
+  margin: 0 auto;
+  color: #333;
+  font-size: 24rpx;
+}
+
+.adminone {
+  display: flex;
+  justify-content: space-between;
+  height: 70rpx;
+  line-height: 70rpx;
+}

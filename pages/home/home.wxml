@@ -1,0 +1,21 @@
+<navBar title='惠分期' background='#fff' back="{{false}}" home="{{false}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+<view class="containerhome">
+  <view class="containerup">
+    <image src="/images/homeup.png" class="imagesup"></image>
+  </view>
+  <view class="containerbox">
+    <!-- 四个机构 -->
+    <view class="boxone" bindtap="orginclick1" wx:if="{{orginshow1}}">
+      <image src="/images/home1.png" class="imgone"></image>
+    </view>
+    <view class="boxone" bindtap="orginclick2" wx:if="{{orginshow2}}">
+      <image src="/images/home2.png" class="imgone"></image>
+    </view>
+    <view class="boxone" bindtap="orginclick3" wx:if="{{orginshow3}}">
+      <image src="/images/home3.png" class="imgone"></image>
+    </view>
+    <view class="boxone" bindtap="orginclick4" wx:if="{{orginshow4}}">
+      <image src="/images/home4.png" class="imgone"></image>
+    </view>
+  </view>
+</view>

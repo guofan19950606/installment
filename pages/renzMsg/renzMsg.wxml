@@ -1,0 +1,63 @@
+<navBar title='证件资料上传' background='#fff' back="{{true}}" home="{{false}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+<view class="containerren">
+<!-- 证件资料上传 -->
+<view class="identity">
+  <view class="identity_words">请拍摄并上传你的有效身份证</view>
+  <view class="identity_card">
+    <view class="card_list">
+      <view class="list_img">
+        <image wx:if="{{tempFilePaths1}}" src="{{tempFilePaths1}}" bindtap="previewImage_card1" mode="aspectFill" />
+        <view class="delete" bindtap="delete_card1" wx:if="{{imgShow1}}" data-img="{{tempFilePaths1}}" data-index="{{index}}" data-fourIndex='1'>
+          X
+        </view>
+      </view>
+      <view class="list_words" bindtap="chooseImg_cards1" data-fourIndex='1'>上传身份证正面</view>
+    </view>
+    <view class="card_list">
+      <view class="list_img">
+        <image wx:if="{{tempFilePaths2}}" src="{{tempFilePaths2}}" bindtap="previewImage_card2" mode="aspectFill" />
+        <view class="delete" bindtap="delete_card1" wx:if="{{imgShow2}}" data-img="{{tempFilePaths2}}" data-index="{{index}}" data-fourIndex='2'>
+          X
+        </view>
+      </view>
+      <view class="list_words" bindtap="chooseImg_cards1" data-fourIndex='2'>上传身份证反面</view>
+    </view>
+  </view>
+</view>
+<!-- 拍摄身份证要求： -->
+<view class="requested">
+  <view class="requested_one">拍摄身份证要求：</view>
+  <view class="requested_two">大陆公民持有的本人有效二代身份证；</view>
+  <view class="requested_three">
+    拍摄时确保身份证
+    <text>边框完整，字体清晰，亮度均匀；</text>
+  </view>
+  <view class="requested_four">
+    <image src="/images/confirm.png"></image>
+  </view>
+</view>
+<!-- 其他证件上传 -->
+<view class='ziliaoRz_married'>
+  <view class="identity_words2">其他证件上传</view>
+  <view class="gallery">
+    <view class="itemImg" wx:for="{{images_house}}" wx:key="this">
+      <image src="{{item}}" data-src="{{item}}" bindtap="previewImage_house" mode="aspectFill" />
+      <view class="delete_married" data-images="{{item}}" bindtap="delete_matrimony_house" data-index="{{index}}">
+        X
+      </view>
+    </view>
+    <view class="itemAdd" wx:if="{{showjia_house}}" bindtap="chooseImage_married_house">
+      <view class="addIcon_add">
+        <view class="list_img2">
+          <image src="/images/renzCard.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="students_list">
+  <view>备注信息</view>
+  <textarea placeholder="请输入备注信息" value="{{remarks}}" bindinput="remarks"></textarea>
+</view>
+<view class="nextBtn" bindtap="renzheng_nextBtn">确认</view>
+</view>

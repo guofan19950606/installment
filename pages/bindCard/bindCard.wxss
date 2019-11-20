@@ -1,0 +1,69 @@
+/* pages/bindCard/bindCard.wxss */
+.cardMsg{
+   background: #f7f7f7;
+}
+.cardName{
+  font-family:MicrosoftYaHei;
+  font-weight:  Regular;
+  text-align: left;
+  margin-left: 55rpx;
+  color: #333333;
+  font-size: 36rpx;
+  margin-top:81rpx;
+}
+.inputName{
+  font-family:MicrosoftYaHei;
+  font-weight:  Regular;
+  text-align: left;
+  margin-left: 55rpx;
+  color: #DDDDDD;
+  font-size: 30rpx;
+  margin-top:33rpx;
+}
+.inputList{
+  width:634rpx;
+  font-family:MicrosoftYaHei;
+  font-weight:  Regular;
+  text-align: left;
+  margin-left: 55rpx;
+  color: #DDDDDD;
+  font-size: 30rpx;
+  margin-top:33rpx;
+  border-bottom:1px solid #DDDDDD;
+  padding-bottom: 12rpx;
+}
+.input{
+  width:643rpx;
+  height:278rpx;
+  border-radius: 10rpx;
+  border:1rpx solid #BFBFBF;
+  margin-left: 53rpx;
+  margin-top: 30rpx;
+}
+.inputInfo{
+  margin-left:15rpx;
+  margin-top: 19rpx;
+  font-family:MicrosoftYaHei;
+  font-weight:  Regular;
+  text-align: left;
+  color: #B8B8B8;
+  font-size: 30rpx;
+}
+/* 按钮样式 */
+.button{
+  display:flex;                  
+  justify-content: center;
+}
+.sure{
+  width:616rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #4462FE;
+  border-radius: 50rpx;
+  font-size: 34rpx;
+  color:#FFFFFF;
+  position: absolute;
+  margin-top:171rpx;
+  margin-bottom: 49rpx;
+}

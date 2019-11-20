@@ -1,0 +1,31 @@
+<!--pages/bindCard/bindCard.wxml-->
+<view class="cardMsg">
+
+  <view class="first">
+    <view class="cardName">开户行名称</view>
+    <input class="inputName" placeholder="请输入开户行名称" bindinput="bankName" value="{{bankName}}" />
+  </view>
+
+  <view class="two">
+    <view class="cardName">银行卡号</view>
+    <input class="inputList" placeholder="请输入银行卡号" bindinput="bankNumber" value="{{bankNumber}}" />
+  </view>
+
+  <view class="two">
+    <view class="cardName">预留手机号</view>
+    <input class="inputList" placeholder="请输入预留手机号" bindinput="phone" value="{{phone}}" />
+  </view>
+  
+  <view>
+    <view class="cardName">备注信息</view>
+    <view class="input">
+    <textarea class="inputInfo" placeholder="请输入备注信息" rows="50" cols="3" bindinput="postScript" value="{{postScript}}"></textarea>
+    </view>
+  </view>
+
+  <view class="button">
+    <view class="sure" bindtap="sureBtn">确认</view>
+  </view>
+  
+
+</view>

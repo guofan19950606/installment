@@ -1,0 +1,198 @@
+<navBar title='实名认证' background='#fff' back="{{true}}" home="{{false}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+<!-- 实名认证 -->
+<view class="realnameform">
+  <view class="realname">
+    <view class="name">
+      <view>真实姓名</view>
+      <input type="text" placeholder="请输入姓名" value="{{realname}}" bindinput="realname" />
+    </view>
+    <view class="type">
+      <view class="type_words">职业类型</view>
+      <view class="fourWrap">
+        <block wx:for="{{fourTitles}}" wx:key="{{index}}">
+          <view class='title_item {{currentId==index?"active":""}}' bindtap='activeBtn' data-index='{{index}}'>
+            <view class="item_words">
+              <view class="item_dot"></view>
+              <view class="item_dotWords">{{item.name}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <!-- 学生 -->
+  <view class="students" hidden='{{currentId!=0}}'>
+    <!-- <students/> -->
+    <view class="students_list">
+      <view>学校名称</view>
+      <input type="text" placeholder="请输入学校名称" value="{{students_schoolName}}" bindinput="students_schoolName" />
+    </view>
+    <view class="students_list">
+      <view>学校地址</view>
+      <input type="text" placeholder="请输入学校地址" value="{{students_schoolAddress}}" bindinput="students_schoolAddress" />
+    </view>
+    <view class="students_list">
+      <view>手机号</view>
+      <input type="number" placeholder="请输入手机号" value="{{students_phone}}" bindinput="students_phone" />
+    </view>
+    <view class="students_list">
+      <view>QQ</view>
+      <input type="text" placeholder="请输入QQ" value="{{students_qq}}" bindinput="students_qq" />
+    </view>
+    <view class="students_list">
+      <view>微信</view>
+      <input type="text" placeholder="请输入微信" value="{{students_wechat}}" bindinput="students_wechat" />
+    </view>
+    <view class="students_list">
+      <view>电子邮箱</view>
+      <input type="text" placeholder="请输入电子邮箱" value="{{students_email}}" bindinput="students_email" />
+    </view>
+    <view class="students_list">
+      <view>现居地址</view>
+      <input type="text" placeholder="请输入现居地址" value="{{students_nowAddress}}" bindinput="students_nowAddress" />
+    </view>
+    <view class="students_list">
+      <view>备注信息</view>
+      <!-- <input type="text" placeholder="请输入现居地址" value="{{employee_nowAddress}}" bindinput="employee_nowAddress"/> -->
+      <textarea placeholder="请输入备注信息" value="{{students_mark}}" bindinput="students_mark"></textarea>
+    </view>
+    <view class="nextBtn" bindtap="students_nextBtn">
+      确认
+    </view>
+  </view>
+  <!-- 公司职员 -->
+  <view class="employee" hidden='{{currentId!=1}}'>
+    <!-- <employee/> -->
+    <view class="students_list">
+      <view>公司名称</view>
+      <input type="text" placeholder="请输入公司名称" value="{{employee_comName}}" bindinput="employee_comName" />
+    </view>
+    <view class="students_list">
+      <view>公司地址</view>
+      <input type="text" placeholder="请输入公司地址" value="{{employee_address}}" bindinput="employee_address" />
+    </view>
+    <view class="students_list">
+      <view>公司职位</view>
+      <input type="text" placeholder="请输入公司职位" value="{{employee_position}}" bindinput="employee_position" />
+    </view>
+    <view class="students_list">
+      <view>月收入</view>
+      <input type="number" placeholder="请输入月收入" value="{{employee_money}}" bindinput="employee_money" />
+    </view>
+    <view class="students_list">
+      <view>手机号</view>
+      <input type="number" placeholder="请输入手机号" value="{{employee_phone}}" bindinput="employee_phone" />
+    </view>
+    <view class="students_list">
+      <view>QQ</view>
+      <input type="text" placeholder="请输入QQ" value="{{employee_qq}}" bindinput="employee_qq" />
+    </view>
+    <view class="students_list">
+      <view>微信</view>
+      <input type="text" placeholder="请输入微信" value="{{employee_wechat}}" bindinput="employee_wechat" />
+    </view>
+    <view class="students_list">
+      <view>电子邮箱</view>
+      <input type="text" placeholder="请输入电子邮箱" value="{{employee_email}}" bindinput="employee_email" />
+    </view>
+    <view class="students_list">
+      <view>现居地址</view>
+      <input type="text" placeholder="请输入现居地址" value="{{employee_nowAddress}}" bindinput="employee_nowAddress" />
+    </view>
+    <view class="students_list">
+      <view>备注信息</view>
+      <!-- <input type="text" placeholder="请输入现居地址" value="{{employee_nowAddress}}" bindinput="employee_nowAddress"/> -->
+      <textarea placeholder="请输入备注信息" value="{{employee_mark}}" bindinput="employee_mark"></textarea>
+    </view>
+    <view class="nextBtn" bindtap="employee_nextBtn">
+      确认
+    </view>
+  </view>
+  <!-- 企业主 -->
+  <view class="company" hidden='{{currentId!=2}}'>
+    <!-- <company/> -->
+    <view class="students_list">
+      <view>企业名称</view>
+      <input type="text" placeholder="请输入企业名称" value="{{company_name}}" bindinput="company_name" />
+    </view>
+    <view class="students_list">
+      <view>企业地址</view>
+      <input type="text" placeholder="请输入企业地址" value="{{company_address}}" bindinput="company_address" />
+    </view>
+    <view class="students_list">
+      <view>社会统一信用代码</view>
+      <input type="text" placeholder="请输入社会统一信用代码" value="{{company_code}}" bindinput="company_code" />
+    </view>
+    <view class="students_list">
+      <view>手机号</view>
+      <input type="number" placeholder="请输入手机号" value="{{company_phone}}" bindinput="company_phone" />
+    </view>
+    <view class="students_list">
+      <view>QQ </view>
+      <input type="text" placeholder="请输入QQ " value="{{company_qq}}" bindinput="company_qq" />
+    </view>
+    <view class="students_list">
+      <view>微信</view>
+      <input type="text" placeholder="请输入微信" value="{{company_wechat}}" bindinput="company_wechat" />
+    </view>
+    <view class="students_list">
+      <view>电子邮箱</view>
+      <input type="text" placeholder="请输入电子邮箱" value="{{company_email}}" bindinput="company_email" />
+    </view>
+    <view class="students_list">
+      <view>现居地址</view>
+      <input type="text" placeholder="请输入现居地址" value="{{company_nowAddress}}" bindinput="company_nowAddress" />
+    </view>
+    <view class="students_list">
+      <view>备注信息</view>
+      <!-- <input type="text" placeholder="请输入现居地址" value="{{employee_nowAddress}}" bindinput="employee_nowAddress"/> -->
+      <textarea placeholder="请输入备注信息" value="{{company_mark}}" bindinput="company_mark"></textarea>
+    </view>
+    <view class="nextBtn" bindtap="company_nextBtn">
+      确认
+    </view>
+  </view>
+  <!-- 待业 -->
+  <view class="jobwaiting" hidden='{{currentId!=3}}'>
+    <!-- <jobwaiting/> -->
+    <view class="students_list">
+      <view>共借人名称</view>
+      <input type="text" placeholder="请输入共借人名称" value="{{jobwaiting_name}}" bindinput="jobwaiting_name" />
+    </view>
+    <view class="students_list">
+      <view>共借人联系电话</view>
+      <input type="number" placeholder="请输入共借人联系电话" value="{{jobwaiting_phone}}" bindinput="jobwaiting_phone" />
+    </view>
+    <view class="students_list">
+      <view>共借人地址</view>
+      <input type="text" placeholder="请输入共借人地址" value="{{jobwaiting_address}}" bindinput="jobwaiting_address" />
+    </view>
+    <view class="students_list">
+      <view>借款人手机号</view>
+      <input type="number" placeholder="请输入借款人手机号" value="{{jobwaiting_mobile}}" bindinput="jobwaiting_mobile" />
+    </view>
+    <view class="students_list">
+      <view>借款人QQ</view>
+      <input type="text" placeholder="请输入借款人QQ" value="{{jobwaiting_qq}}" bindinput="jobwaiting_qq" />
+    </view>
+    <view class="students_list">
+      <view>借款人微信 </view>
+      <input type="text" placeholder="请输入借款人微信 " value="{{jobwaiting_wechat}}" bindinput="jobwaiting_wechat" />
+    </view>
+    <view class="students_list">
+      <view>借款人电子邮箱</view>
+      <input type="text" placeholder="请输入借款人电子邮箱" value="{{jobwaiting_email}}" bindinput="jobwaiting_email" />
+    </view>
+    <view class="students_list">
+      <view>借款人现居地址</view>
+      <input type="text" placeholder="请输入借款人现居地址" value="{{jobwaiting_nowAddress}}" bindinput="jobwaiting_nowAddress" />
+    </view>
+    <view class="students_list">
+      <view>备注信息</view>
+      <textarea placeholder="请输入备注信息" value="{{jobwaiting_mark}}" bindinput="jobwaiting_mark"></textarea>
+    </view>
+    <view class="nextBtn" bindtap="jobwaiting_nextBtn">
+      确认
+    </view>
+  </view>
+</view>

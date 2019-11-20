@@ -1,0 +1,124 @@
+/* pages/course/course.wxss */
+
+.course {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin {
+  width: 95%;
+  margin: 0 auto;
+  box-shadow: 5rpx 0 20rpx 5rpx #d5d5d5;
+  /* margin-top: 20rpx; */
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  border-radius: 20rpx;
+  background: #fff;
+  box-sizing: content-box;
+}
+
+.adminlist {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.adminone {
+  margin-bottom: 10rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.hiddenmore .more-item {
+  display: none;
+}
+
+/* .showmore .more-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+} */
+
+.adminbox {
+  width: 90%;
+  margin: 0 auto;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.admintwo {
+  display: flex;
+  justify-content: space-between;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.coursehead {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bolder;
+  padding-top: 32rpx;
+}
+
+.checkmore {
+  text-align: center;
+  padding: 10rpx 0;
+}
+
+.price {
+  color: #4462fe;
+}
+
+.coursetitle {
+  color: #828282;
+  font-size: 24rpx;
+  margin-bottom: 26rpx;
+}
+
+/* taber切换 */
+
+.navigation_Cut {
+  padding: 25rpx 18rpx 10rpx 19rpx;
+  height: 61rpx;
+  box-sizing: content-box;
+}
+
+.navigation_Content {
+  height: 100%;
+  background: #fff;
+  display: flex;
+  padding: 0rpx 52rpx 0rpx 71rpx;
+  justify-content: space-around;
+}
+
+.navigation_Item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.navigation_Text {
+  color: #d5d5d5;
+  line-height: 24rpx;
+  margin-bottom: 10rpx;
+  display: block;
+  margin-top: 17rpx;
+}
+
+.navigation_Image {
+  height: 4rpx;
+}
+
+.nav-hover {
+  color: #333 !important;
+}
+
+.courseadd {
+  text-align: center;
+  padding-bottom: 20rpx;
+  color: #c4bdbdfd;
+}

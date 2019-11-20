@@ -1,0 +1,36 @@
+.organization {
+  width: 100%;
+}
+
+.contanier {
+  width: 634rpx;
+  margin: 0 auto;
+}
+
+.students_list {
+  border-bottom: 1px solid #eee;
+}
+
+.students_list view {
+  margin: 30rpx 0 15rpx;
+  font-size: 36rpx;
+  color: #333;
+}
+
+.students_list input {
+  font-size: 28rpx;
+  color: #999;
+  padding: 6rpx;
+}
+
+.nextBtn {
+  width: 616rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 70rpx auto 10rpx;
+  background: #3772ef;
+  font-size: 34rpx;
+  color: #fff;
+  border-radius: 40rpx;
+}

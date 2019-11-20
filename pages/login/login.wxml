@@ -1,0 +1,52 @@
+<navBar title='惠分期' background='#fff' back="{{false}}" home="{{false}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+<!-- 登录 -->
+
+<view class="content">
+
+  <view class="login_top">
+    <view class="top_left">
+      <image src="/images/loginBlue1.png"></image>
+    </view>
+    <view class="top_right">
+      <view>登录</view>
+      <view class="logintitle">欢迎来到惠分期平台管理中心</view>
+    </view>
+  </view>
+  <view class="login_center">
+    <view class="phone">
+      <image src="/images/phone.png"></image>
+      <input type="number" placeholder="请输入手机号" value="{{phone}}"  bindinput='phone' />
+    </view>
+    <view class="jiaoyan" hidden="{{hidenphone}}">请输入正确手机号</view>
+    <view class="phone2">
+      <image src="/images/pass.png"></image>
+      <input type="password" placeholder="请输入密码" value="{{password}}" bindinput='password' />
+    </view>
+    <view class="jiaoyan" hidden="{{hidenpassword}}">请输入正确密码</view>
+  </view>
+  <view class="loginBtn" bindtap='loginBtn'>登录</view>
+  <view class="bottomImg">
+    <image src="/images/loginBlue2.png"></image>
+  </view>
+  </view>
+  <!-- <view class="jiaoyan" hidden="{{hidenphone}}">请输入正确手机号</view>
+  <view class="phone2">
+    <image src="/images/pass.png"></image>
+    <input type="password" placeholder="请输入密码" value="{{password}}" bindinput='password' />
+  </view>
+  <view class="jiaoyan" hidden="{{hidenpassword}}">请输入正确密码</view>
+</view>
+<view class="loginBtn" bindtap='loginBtn'>登录</view>
+<view class="bottomImg">
+  <image src="/images/loginBlue2.png"></image>
+  <view class="jiaoyan" hidden="{{hidenphone}}">请输入正确手机号</view>
+  <view class="phone2">
+    <image src="/images/pass.png"></image>
+    <input type="text" placeholder="请输入密码" value="{{password}}" bindinput='password' />
+  </view>
+  <view class="jiaoyan" hidden="{{hidenpassword}}">请输入正确密码</view>
+</view>
+<view class="loginBtn" bindtap='loginBtn'>登录</view>
+<view class="bottomImg">
+  <image src="/images/loginBlue2.png"></image>
+</view> -->

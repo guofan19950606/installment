@@ -1,0 +1,337 @@
+/**app.wxss**/
+
+/*个人中心列表*/
+
+page {
+  /* width: 100%; */
+  /* height: 100%; */
+  /* background: #f7f7f7; */
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.person_list {
+  width: 100%;
+  background: #fff;
+}
+
+.person_li {
+  width: 100%;
+  padding: 25rpx;
+  border-bottom: 1rpx solid #f8f8f8;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.person_li_label {
+  color: #333;
+  font-size: 26rpx;
+}
+
+.person_li_cont {
+  color: #707070;
+  font-size: 26rpx;
+}
+
+/*按钮样式*/
+
+.loginBtn {
+  width: 616rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 80rpx auto 0;
+  background: #3772ef;
+  font-size: 34rpx;
+  color: #fff;
+  border-radius: 40rpx;
+}
+
+/**app.wxss**/
+
+/* 公共样式 */
+
+page {
+  color: #000;
+  background-color: #f2f2f2;
+  height: 100%;
+}
+
+/*全局设置所有页面属性*/
+
+image {
+  width: 100%;
+  height: 100%;
+}
+
+text {
+  color: #000;
+}
+
+/*text可复制类颜色*/
+
+rich-text {
+  color: #000;
+}
+
+/* 需要转码文本（行数间需要空格则后台转码div便签间加<br />）*/
+
+/* 表单类 */
+
+input {
+  color: #000;
+}
+
+textarea {
+  color: #000;
+  width: 100%;
+}
+
+.input-placeholder {
+  color: #dedfe5;
+}
+
+/*表单placeholder默认样式*/
+
+button {
+  margin: 0;
+  paading: 0;
+  line-height: staic;
+}
+
+/* 如需清空button样式 */
+
+button:after {
+  border: none;
+}
+
+/* 处理button默认边框 */
+
+button[disabled] {
+  background-color: #d0cbc5 !important;
+  color: #ece9e6 !important;
+}
+
+/*按钮不可点击时的默认样式，必须强制改;*/
+
+.app-dn {
+  display: none;
+}
+
+.app-db {
+  display: block;
+}
+
+.app-fl {
+  float: left;
+}
+
+.app-fr {
+  float: right;
+}
+
+.app-overflow {
+  overflow: hidden;
+}
+
+/* 设置一致性按钮 */
+
+.app-btn {
+  height: 92rpx;
+  font-size: 36rpx;
+  color: #fff;
+  background-color: #ffba17;
+  border-radius: 100rpx;
+  line-height: 92rpx;
+  border: none;
+}
+
+/* 最多显示几行 */
+
+.app-maxRow {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 文字  rpx */
+
+.app-fz16 {
+  font-size: 16rpx;
+}
+
+.app-fz18 {
+  font-size: 18rpx;
+}
+
+.app-fz20 {
+  font-size: 20rpx;
+}
+
+.app-fz22 {
+  font-size: 22rpx;
+}
+
+.app-fz24 {
+  font-size: 24rpx;
+}
+
+.app-fz26 {
+  font-size: 26rpx;
+}
+
+.app-fz28 {
+  font-size: 28rpx;
+}
+
+.app-fz30 {
+  font-size: 30rpx;
+}
+
+.app-fz32 {
+  font-size: 32rpx;
+}
+
+.app-fz36 {
+  font-size: 36rpx;
+}
+
+.app-fz40 {
+  font-size: 40rpx;
+}
+
+.app-fz48 {
+  font-size: 48rpx;
+}
+
+@font-face {font-family: "iconfont";
+  src: url('https//at.alicdn.com/t/font_1492627_vdutdgtg8xn.eot?t=1573287293699'); /* IE9 */
+  src: url('https//at.alicdn.com/t/font_1492627_vdutdgtg8xn.eot?t=1573287293699#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAARkAAsAAAAACTwAAAQVAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDVgqFHIQ7ATYCJAMcCxAABCAFhG0HWBsDCMieA24bjSRkpeXuu80ecRFUa2TP3h48owIKkGdJWB4IPJBGoeNRxcfGRT0a8UNt6sUNOieZeE0dyEGJkfjmZPPkaxOxt/i3felrIvZuDOSpd/jPH0u9KD07zHdtB3KK/19GU2+j8ayABhTRVmQbyNCnMpyE3aRM3J8m0GrSJrwDtc3dQCqjkwJxjaFxIPW45ARmaKxVxJVZfAAiTXrJnwTAe+P3Yx1khpSkLNCZRy/UWEH5kvRTm4Bb4MCwRgDq6gK4XUeBTYBMvIgMPSKwSpsItH7eI3QQ0K6R5CXpB/TDmg91n9oWFvAoIDoKhHZB7ixSikKNChWh/O+4qZ1Tz5YrlqRcRskSIiNYQmUkltbIyCzVyShYaTObVHJ9YCc68B2AMAB2WZJghzzGe+dipTBPKVXt7U9NSTQeB5zRZEViEcRIoQkk6W8woZDeTl0d8sijAUVoUzIKgzEdfvUjxu29t+d54TliRGYY3Ozeiuh8UU88mgx75+f73PfvmZnpnpsb0gHtRYW49S6dDCNIImK0UqqYMcaZoFXMFI+iNDSgcWf7lJFEOKlQvY5zse5EgidwoZsD8BGdm+utzrDtiU3svtvcXPabDnNGufuaVDRlHoeWTHmlXt9LZxRKPnLlGeaWDiECsv9PtnSeackUyT5KRH36cauuQp5hRsKyUizNdccdFpD9d/jWrWfLe9Ny1443NeNrHeNrkVg37ljnQY+75Wb2m9tu3aL0z/XWMf7ozp0jvFGehlX9CFij/BH+XQH+tbS8dNfD8pJyUHs3GPq+7ofu+9rvJr4jPaj7sQ7h4I+1EZhUQO5RcMJWKLuuvy7TEhdPcHct1109+qS/vgm/fhXeEQhY1Tl9CoPptGB6WgD9aQlDJ4XBLrS5uMHvNPY7yX8KwMZnBMsZh2BKUFHpnMBy+vyNP9ezUsc0xf+ligz+fUvsRHKDEGRv00jc1CeLOuOK/NWSu87v6cqYQG27q0FCq1jHSRLr9aI6y0DmTkJjwIGkNgGFxhQxUzdBqc0uqDR2Q6tFdde36eMlELkFC/YzCN1uQ9LpNxS6TREz9TmUBn2HSncIoNXpMNyxzUww8iovxP3QihFbMYZkXZTs9cvN7k5IBxy416012L3Q62OyWEZqur9aB13QW8U5viCd6fdTGOVlnVgtex50OFjM7WVtkPSnTvj97sK0NCrqm1JJ1gnk9vOCcH6QFYawFYZBYrlQ2sZ+8sDPd4JoAQ44b8LEj3wvyMuH2T0mQ6r0DMQ6kyvTxK7s7xNEy+TnR0nHUbxYTphaBCCHKLEw7ujDbCCSX6qJAgW3Qml8LSqrKbV5i3M974BW9DF1pCgiRxlV1NHI59iQix9wi31swBdgxTYGn8D1djqAuwhG4glmAAAAAAA=') format('woff2'),
+  url('https//at.alicdn.com/t/font_1492627_vdutdgtg8xn.woff?t=1573287293699') format('woff'),
+  url('https//at.alicdn.com/t/font_1492627_vdutdgtg8xn.ttf?t=1573287293699') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('https//at.alicdn.com/t/font_1492627_vdutdgtg8xn.svg?t=1573287293699#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-down:before {
+  content: "\e616";
+}
+
+.icon-up:before {
+  content: "\e617";
+}
+
+.icon-sousuo:before {
+  content: "\e647";
+}
+
+.icon-jiahao:before {
+  content: "\e626";
+}
+
+.icon-guanbi:before {
+  content: "\e608";
+}
+
+.icon-jiahao1:before {
+  content: "\e84f";
+}
+
+
+
+/* 顶部搜索 */
+
+.userinfo_Msg {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.search_Box {
+  padding: 24rpx 18rpx 0rpx 19rpx;
+  height: 87rpx;
+}
+
+.search_Msg {
+  padding: 10rpx 16rpx 10rpx 19rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10；
+}
+
+.search_Icon {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.search_Input {
+  flex: 1;
+}
+
+.search_close {
+  display: flex;
+  align-items: center;
+}
+
+.search_close i {
+  font-size: 24rpx;
+  color: #343434;
+  padding-left: 40rpx;
+}
+
+.search_Box {
+  position: relative;
+  z-index: 10;
+}
+
+.search_selected {
+  position: absolute;
+  width: 96%;
+  background: #DEDFE5;
+  padding: 0 50rpx;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+  z-index: 10;
+}
+.search_selected_Item{
+padding: 20rpx;
+border-bottom: 1rpx solid #EEEEEE;
+}
+
+.search_selected_Item:last-child {
+  border: none;
+}
+
+.mask-popup{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+

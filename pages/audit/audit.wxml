@@ -1,0 +1,78 @@
+<navBar title='审核客户列表' background='#fff' back="{{true}}" home="{{false}}" bindback="handlerGobackClick"       bindhome="handlerGohomeClick"></navBar>
+
+<view class="audlitlist">
+
+  <view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">全部</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">待审核</view>
+    <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">已通过</view>
+    <view class="swiper-tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="clickTab">未通过</view>
+  </view>
+  <view class="{{currentTab == 0 ? 'show':'hidden'}}">
+    <scroll-view>
+      <view class="admin">
+        <view class="adminbox">
+          <view class="adminone">
+            <text>管理员姓名</text>
+            <text>史俊杰</text>
+          </view>
+          <view class="adminone">
+            <text>联系电话</text>
+            <text>18116261149</text>
+          </view>
+          <view class="adminone">
+            <text>培训机构</text>
+            <text>西安尚德机构</text>
+          </view>
+          <view class="adminone">
+            <text>注册时间</text>
+            <text>2019-10-12 13:16</text>
+          </view>
+          <view class="adminone">
+            <text>审核状态</text>
+            <text>已通过</text>
+          </view>
+        </view>
+      </view>
+      <view class="admin">
+        <view class="adminbox">
+          <view class="adminone">
+            <text>管理员姓名</text>
+            <text>史俊杰</text>
+          </view>
+          <view class="adminone">
+            <text>联系电话</text>
+            <text>18116261149</text>
+          </view>
+          <view class="adminone">
+            <text>培训机构</text>
+            <text>西安尚德机构</text>
+          </view>
+          <view class="adminone">
+            <text>注册时间</text>
+            <text>2019-10-12 13:16</text>
+          </view>
+          <view class="adminone">
+            <text>审核状态</text>
+            <text>已通过</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="{{currentTab == 1 ? 'show':'hidden'}}">
+    <scroll-view>
+      <text>暂无内容2</text>
+    </scroll-view>
+  </view>
+  <view class="{{currentTab == 2 ? 'show':'hidden'}}">
+    <scroll-view>
+      <text>暂无内容3</text>
+    </scroll-view>
+  </view>
+  <view class="{{currentTab == 3 ? 'show':'hidden'}}">
+    <scroll-view>
+      <text>暂无内容4</text>
+    </scroll-view>
+  </view>
+</view>

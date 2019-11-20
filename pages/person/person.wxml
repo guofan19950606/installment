@@ -1,0 +1,41 @@
+<navBar title='个人中心' background='#fff' back="{{false}}" home="{{false}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+<!--pages/person/person.wxml-->
+<view class="containers">
+  <view class="top_box">
+    <view class="top_head">
+      <!-- <image  src="../../image/person_head.png" class="person_head"></image> -->
+      <open-data type="userAvatarUrl" class="opendata_head"></open-data>
+    </view>
+    <view class="top_right">
+      <!-- <view >清敛拂裳白衣染</view> -->
+      <open-data type="userNickName" class="person_name"></open-data>
+      <!-- <view class="person_state">审核中</view> -->
+    </view>
+  </view>
+  <view class="person_list">
+    <view class="person_list_li" wx:if="{{isShow == true}}" bindtap="clickBtn_course">
+      <view class="person_list_li_left">
+        <image src="/images/adminone.png" class="person_list_img"></image>
+        <view class="person_list_view">管理员管理</view>
+      </view>
+      <view class="person_list_li_right">
+        <image src="/images/arrow_right.png" class="person_li_arrow"></image>
+      </view>
+    </view>
+    <view class="person_list_li" bindtap="clickBtn_name">
+      <view class="person_list_li_left">
+        <image src="/images/number.png" class="person_list_img"></image>
+        <view class="person_list_view">账户管理</view>
+      </view>
+      <view class="person_list_li_right">
+        <image src="/images/arrow_right.png" class="person_li_arrow"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 确认按钮 -->
+  <view class="button">
+    <view class="sure">
+      <button bindtap="sureBtn" class="savaButton">退出登录</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,99 @@
+<navBar title='课程信息' background='#fff' back="{{true}}" home="{{true}}" bindback="handlerGobackClick" bindtap="powerDrawer"></navBar>
+<view class="addcoursebox">
+  <!-- 顶部搜索 -->
+  <view class="search_Box">
+    <view class="search_Msg">
+      <view class="search_Icon">
+        <i class="iconfont icon-sousuo"></i>
+        <input class="app-fz24 search_Input" value="{{inputValue}}" bindinput='watchKeyWord' placeholder-style="font-size:24rpx;color:#828282;" placeholder="课程名称" />
+      </view>
+      <view class="search_close" wx:if="{{inputLength != 0}}" bindtap='clearInputEvent'>
+        <i class="iconfont icon-guanbi app-fz20"></i>
+      </view>
+    </view>
+  </view>
+  <!-- 课程列表页 -->
+  <view class="classlist">
+    <scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="lower">
+    <view class="admin" wx:for="{{roginlist}}" wx:key="{{index}}" wx:item="{{item}}">
+      <view class="adminbox">
+        <view class="adminone">
+          <!-- <text class="updatess" data-cnum="{{item.courseNum}}" bindtap="powerDrawer">编辑</text> -->
+          <text class="updatess" data-cnum="{{item.courseNum}}" bindtap="updatepower">编辑</text>
+          <text class="adminname delet" bindtap="orgindelet" data-delet="{{item.courseNum}}">删除</text>
+        </view>
+        <view class="adminone">
+          <view>课程</view>
+          <view class="adminname">
+            <text class="max">{{item.courseName}}课程</text>
+          </view>
+        </view>
+        <view class="adminone">
+          <text>课时</text>
+          <text class="adminname">{{item.classDay}}个月</text>
+        </view>
+        <view class="adminone">
+          <text>课节</text>
+          <text class="adminname">{{item.classHour}}节</text>
+        </view>
+        <view class="adminone">
+          <text>价格</text>
+          <text class="adminname">{{item.classPrice}}元</text>
+        </view>
+      </view>
+    </view>
+    </scroll-view>
+  </view>
+  <!-- 添加 -->
+  <!--mask-->
+  <view class="drawer_screen" bindtap="powerDrawermark" data-statu="close" wx:if="{{showModalStatus}}"></view>
+  <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+    <!--drawer content-->
+    <view class="drawer_title">添加课程</view>
+    <view class="drawer_content">
+      <view class="top grid">
+        <label class="title col-0">课程</label>
+        <input class="input_base input_h30 col-1" value="{{courseName}}" bindinput="courseName" type="text"></input>
+      </view>
+      <view class="top grid">
+        <label class="title col-0">课节(节)</label>
+        <input class="input_base input_h30 col-1" value="{{classDay}}" bindinput="classDay" type="number"></input>
+      </view>
+      <view class="top grid">
+        <label class="title col-0">课时(月)</label>
+        <input class="input_base input_h30 col-1" value="{{classHour}}" bindinput="classHour" type="number"></input>
+      </view>
+      <view class="top grid">
+        <label class="title col-0">价格(元)</label>
+        <input class="input_base input_h30 col-1" value="{{classPrice}}" bindinput="classPrice" type="number"></input>
+      </view>
+    </view>
+    <view class="btn_ok" bindtap="powerDrawerClose" data-statu="close">确定</view>
+  </view>
+  <!-- 编辑 -->
+  <!--mask-->
+  <view class="drawer_screen" bindtap="powerDrawerupdatemark" data-statu="close" wx:if="{{showModalStatusupdate}}"></view>
+  <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatusupdate}}">
+    <!--drawer content-->
+    <view class="drawer_title">编辑课程</view>
+    <view class="drawer_content">
+      <view class="top grid">
+        <label class="title col-0">课程</label>
+        <input class="input_base input_h30 col-1" value="{{updatecourseName}}" bindinput="updatecourseName" type="text"></input>
+      </view>
+      <view class="top grid">
+        <label class="title col-0">课节(节)</label>
+        <input class="input_base input_h30 col-1" value="{{updateclassDay}}" bindinput="updateclassDay" type="number"></input>
+      </view>
+      <view class="top grid">
+        <label class="title col-0">课时(月)</label>
+        <input class="input_base input_h30 col-1" value="{{updateclassHour}}" bindinput="updateclassHour" type="number"></input>
+      </view>
+      <view class="top grid">
+        <label class="title col-0">价格(元)</label>
+        <input class="input_base input_h30 col-1" value="{{ updateclassPrice}}" bindinput="updateclassPrice" type="number"></input>
+      </view>
+    </view>
+    <view class="btn_ok" bindtap="updatepowerDrawerClose" data-statu="close" data-courseNum="{{updatecourseNum}}">确定</view>
+  </view>
+</view>

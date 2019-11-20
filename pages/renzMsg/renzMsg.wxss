@@ -1,0 +1,192 @@
+.containerren {
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+.identity {
+  width: 690rpx;
+  margin: 30rpx auto 50rpx;
+}
+
+.identity_words {
+  font-size: 32rpx;
+  color: #999;
+}
+
+.identity_card {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.card_list {
+  width: 46%;
+}
+
+.list_img {
+  width: 244rpx;
+  height: 162rpx;
+  margin: 70rpx auto 40rpx;
+  position: relative;
+}
+
+.list_img image {
+  width: 100%;
+  height: 100%;
+}
+
+.delete {
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 1;
+  height: 36rpx;
+  font-size: 42rpx;
+  font-weight: bold;
+  color: #ff5050;
+}
+
+.list_words {
+  width: 320rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background: #3772ef;
+  font-size: 28rpx;
+  color: #fff;
+  border-bottom-right-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+}
+
+.students_list {
+  width: 634rpx;
+  margin: 0 auto;
+}
+
+.students_list {
+  border-bottom: 1px solid #eee;
+}
+
+.students_list view {
+  margin: 30rpx 0 15rpx;
+  font-size: 36rpx;
+  color: #333;
+}
+
+textarea {
+  width: 100% !important;
+  border: 1px solid #ddd;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  padding: 10rpx;
+}
+
+/* 拍摄身份证要求： */
+
+.requested {
+  width: 690rpx;
+  margin: 30rpx auto 50rpx;
+}
+
+.requested_one {
+  font-size: 32rpx;
+  color: #999;
+  padding: 50rpx 0 30rpx;
+}
+
+.requested_two, .requested_three {
+  font-size: 28rpx;
+  color: #333;
+  padding: 10rpx 0;
+}
+
+.requested_three text {
+  color: #ff5050;
+}
+
+.requested_four {
+  width: 690rpx;
+  height: 150rpx;
+  margin: 30rpx auto 50rpx;
+}
+
+.requested_four image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 其他证件上传 */
+
+.ziliaoRz_married, .ziliaoRz_credit {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.gallery {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.identity_words2 {
+  font-size: 32rpx;
+  color: #999;
+  padding-bottom: 30rpx;
+}
+
+.list_img2, .itemImg {
+  width: 264rpx;
+  height: 182rpx;
+  margin: 30rpx;
+  position: relative;
+}
+
+.list_img2 image, .itemImg image {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.delete_married {
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 1;
+  height: 36rpx;
+  font-size: 42rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.itemAdd {
+  width: 320rpx;
+}
+
+.itemAdd image {
+  width: 100%;
+  height: 100%;
+}
+
+.addIcon_add {
+  width: 320rpx;
+}
+
+/* 下一步按钮 */
+
+.nextBtn {
+  width: 616rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 60rpx auto 100rpx;
+  background: #3772ef;
+  font-size: 34rpx;
+  color: #fff;
+  border-radius: 40rpx;
+}

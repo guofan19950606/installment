@@ -1,0 +1,152 @@
+.realnameform{
+   overflow-y: auto;
+}
+/* 去掉滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+.realname, .students, .employee, .company, .jobwaiting {
+  width: 634rpx;
+  margin: 0 auto;
+}
+
+.name {
+  border-bottom: 1px solid #eee;
+}
+
+.name view, .type_words {
+  margin: 30rpx 0 15rpx;
+  font-size: 36rpx;
+  color: #333;
+}
+
+.name input {
+  font-size: 28rpx;
+  color: #999;
+  padding: 6rpx;
+}
+
+.fourWrap {
+  margin: 15rpx auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.title_item {
+  position: relative;
+}
+
+.item_words {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.item_dot {
+  display: block;
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 24rpx;
+  margin-right: 6rpx;
+  border: 1px solid #e5e5e5;
+  border-radius: 50%;
+}
+
+.item_dotWords {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.active .item_words::before {
+  content: '';
+  display: block;
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  background: #3772ef;
+  position: absolute;
+  top: 34rpx;
+  left: 10rpx;
+}
+
+/* 学生 */
+
+.students_list {
+  border-bottom: 1px solid #eee;
+}
+
+.students_list view {
+  margin: 30rpx 0 15rpx;
+  font-size: 36rpx;
+  color: #333;
+}
+
+.students_list input {
+  font-size: 28rpx;
+  color: #999;
+  padding: 6rpx;
+}
+
+/* 同意协议 */
+
+.agreement {
+  text-align: center;
+  padding: 30rpx 0 0;
+}
+
+radio .wx-radio-input {
+  border-radius: 50%;
+  width: 24rpx;
+  height: 24rpx;
+}
+
+radio .wx-radio-input.wx-radio-input-checked {
+  border: none;
+}
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  border-radius: 50%;
+  width: 24rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  text-align: center;
+  font-size: 18rpx;
+  color: #fff;
+  background: #4462fe;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.agreement text {
+  font-size: 24rpx;
+  color: #4462fe;
+  text-align: center;
+}
+
+/* 下一步按钮 */
+
+.nextBtn {
+  width: 616rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 70rpx auto 10rpx;
+  background: #3772ef;
+  font-size: 34rpx;
+  color: #fff;
+  border-radius: 40rpx;
+}
+
+textarea {
+  width: 100% !important;
+  border: 1px solid #ddd;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  padding: 10rpx;
+}
