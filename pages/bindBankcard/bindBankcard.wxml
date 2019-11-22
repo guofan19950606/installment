@@ -20,20 +20,19 @@
     </view>
     <view class="bind_bc_form">
       <label class="bind_bc_form_label">银行卡号</label>
-      <input type="number" name="bankNum" placeholder='请输入银行卡号' class="bind_bc_form_inp" bindinput="bankNum" value="{{bankNum}}" />
+      <input type="number" name="bankcardnum" placeholder='请输入银行卡号' class="bind_bc_form_inp" bindinput="bankNum" value="{{bankNum}}" />
     </view>
     <view class="bind_bc_form">
       <label class="bind_bc_form_label">预留手机号</label>
       <input type="number" placeholder='请输入预留手机号' maxlength="11" class="bind_bc_form_inp" name="phone" value="{{phone}}" bindinput="phone" />
     </view>
-    <view class="bind_bc_form phone">
+    <!-- <view class="bind_bc_form phone">
       <label class="bind_bc_form_label">验证码</label>
       <view class="bind_bc_code">
         <input type="number" name="code" value="{{inputCode}}" class="phoneinp" placeholder='请输入验证码' bindinput="inputCode" />
-        <view wx:if="{{send}}" class="sendMsg" bindtap="sendMsg">发送验证码</view>
-        <view wx:if="{{alreadySend}}" class="sendMsg">{{second+"s"}}后重发</view>
+        <view class='sendMsg' bindtap="{{isClick ? 'sendMsg' : ''}}">{{isClick ? gettoto : count}}{{isClick ? "" : gettoto}}</view>
       </view>
-    </view>
+    </view> -->
     <view class="bind_bc_form">
       <label class="bind_bc_form_label">备注信息</label>
       <textarea placeholder="请输入备注信息" value="{{remarks}}" bindinput="remarks" name="remarks" bindinput="remarks"></textarea>

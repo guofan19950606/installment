@@ -4,12 +4,12 @@
 
   <view class="first">
     <view class="info">手机号</view>
-    <input placeholder="请输入手机号" type="number" maxlength="11" bindinput="telphone" value="{{telphone}}" />
+    <input disabled="{{disabled}}" placeholder="请输入手机号" type="number" maxlength="11" bindinput="telphone" value="{{telphone}}" />
   </view>
 
   <view class="first">
     <view class="info">姓名</view>
-    <input maxlength="20" placeholder="请输入姓名" type="text" bindinput="daminName" value="{{daminName}}" />
+    <input disabled="{{disabled}}" maxlength="20" placeholder="请输入姓名" type="text" bindinput="daminName" value="{{daminName}}" />
   </view>
 
   <view class="first">

@@ -15,12 +15,12 @@
   <view class="login_center">
     <view class="phone">
       <image src="/images/phone.png"></image>
-      <input type="number" placeholder="请输入手机号" value="{{phone}}"  bindinput='phone' />
+      <input type="number" placeholder="请输入手机号" value="{{phone}}" bindinput='phone'/>
     </view>
     <view class="jiaoyan" hidden="{{hidenphone}}">请输入正确手机号</view>
     <view class="phone2">
       <image src="/images/pass.png"></image>
-      <input type="password" placeholder="请输入密码" value="{{password}}" bindinput='password' />
+      <input type="password" confirm-type="go" bindconfirm="EnterInput" placeholder="请输入密码" value="{{password}}" bindinput='password' />
     </view>
     <view class="jiaoyan" hidden="{{hidenpassword}}">请输入正确密码</view>
   </view>
@@ -28,8 +28,8 @@
   <view class="bottomImg">
     <image src="/images/loginBlue2.png"></image>
   </view>
-  </view>
-  <!-- <view class="jiaoyan" hidden="{{hidenphone}}">请输入正确手机号</view>
+</view>
+<!-- <view class="jiaoyan" hidden="{{hidenphone}}">请输入正确手机号</view>
   <view class="phone2">
     <image src="/images/pass.png"></image>
     <input type="password" placeholder="请输入密码" value="{{password}}" bindinput='password' />

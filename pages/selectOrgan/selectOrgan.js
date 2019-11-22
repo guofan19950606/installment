@@ -3,6 +3,7 @@ let util = require('../../utils/util.js')
 let app = getApp();
 Page({
   data: {
+    organcode: '',
     userNum: '',
     courseNum: '',
     organization_code: '', //机构代码
@@ -39,12 +40,16 @@ Page({
   //查询课程内容
   getCourse(num, coursenum) {
     var that = this;
+    console.log(that.data.organcode)
+    console.log(that.data.organcheckcode)
+    var eduNum = that.data.organcode + that.data.organcheckcode
+    console.log(eduNum)
     //获取机构课程列表
     wx.showLoading({
       title: '加载中...',
     })
     util.rePost('/course/getCourse', {
-
+      eduNum: eduNum
     }, function(res) {
       console.log(res)
       if (res.code == 1) {
@@ -153,7 +158,7 @@ Page({
         duration: 1500
       })
       return false;
-    } else if (mark == '') {
+    } else if (mark == null || mark == '') {
       wx.showToast({
         title: '请输入备注信息',
         icon: 'none',
@@ -177,6 +182,9 @@ Page({
       }, function(res) {
         console.log(res)
         if (res.code == 1) {
+          wx.navigateBack({
+            detail: 1
+          })
           wx.showToast({
             title: "修改成功",
             icon: 'success'
@@ -191,8 +199,7 @@ Page({
     }
   },
   // 课程查询
-  checkCourse(e) {
-    console.log(e)
+  checkCourse() {
     var that = this;
     util.reGet('/userCourse/queryCurriculum', {
       userNum: that.data.userNum, //用户编号
@@ -213,8 +220,11 @@ Page({
     })
   },
   onShow: function() {
-    this.getCourse(this.data.contactsMsg_index)
-    this.checkCourse()
+    var that = this;
+    that.checkCourse()
+    setTimeout(function() {
+      that.getCourse(that.data.contactsMsg_index)
+    }, 1000)
   },
   onLoad: function(options) {
     var that = this;
@@ -224,11 +234,5 @@ Page({
     console.log(that.data.courseNum)
     var id = options.id;
     var codeHide = that.data.codeHide;
-    console.log(codeHide)
-    if (id == 2) { //手动输入机构课程  机构校验码显示
-      that.setData({
-        codeHide: false
-      })
-    }
   }
 })

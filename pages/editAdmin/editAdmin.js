@@ -2,6 +2,7 @@
 let util = require('../../utils/util.js')
 Page({
   data: {
+    disabled:false,
     telphone: '', //获取手机号
     daminName: '', //获取用户名称  
     emailValue: '', //获取邮箱号
@@ -133,7 +134,8 @@ Page({
         })
       } else {
         this.setData({
-          isStatusShow: false
+          isStatusShow: false,
+          disabled:true
         })
       }
       if (this.data.id[i] == 2) {

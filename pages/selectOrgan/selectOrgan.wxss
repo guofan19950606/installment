@@ -1,7 +1,7 @@
 .container {
   border-top: 1rpx solid #ddd;
   box-sizing: border-box;
-  overflow-y: auto
+  /* overflow-y: auto */
 }
 form {
   display: block;

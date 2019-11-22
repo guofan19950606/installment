@@ -52,7 +52,6 @@ Page({
   //taber切换
   handleTap: function (e) {
     let id = e.currentTarget.id;
-    console.log(id)
     if (id) {
       this.setData({
         currentId: id,
@@ -79,9 +78,9 @@ Page({
           eduCourseStatus: "1"
         },
           function (res) {
+            console.log(res)
             wx.hideLoading()
             if (res.code == 1) {
-              console.log(res.data)
               that.setData({
                 orgined: that.data.orgined.concat(res.data.records),
                 pages: res.data.pages
@@ -131,7 +130,6 @@ Page({
           function (res) {
             wx.hideLoading()
             if (res.code == 1) {
-              console.log(res.data)
               that.setData({
                 orgined: that.data.orgined.concat(res.data.records),
                 pages: res.data.pages
@@ -171,7 +169,6 @@ Page({
     }
   },
   checkcourse(e) {
-    console.log(e)
     wx.navigateTo({
       url: '/pages/addcourse/addcourse?eduNum=' + e.currentTarget.dataset.edunum + "&eduName=" + e.currentTarget.dataset.eduname,
     })
@@ -202,7 +199,6 @@ Page({
   },
   //监听用户输入搜索框内容
   watchKeyWord: function (event) {
-    console.log(event.detail.value.length);
     let num = event.detail.value.length
     this.setData({
       inputLength: num,
@@ -231,7 +227,6 @@ Page({
   },
   //清除搜索框内容
   clearInputEvent: function (e) {
-    console.log("gfgfgffg")
     this.setData({
       'inputValue': '',
       inputLength: 0,
@@ -261,12 +256,10 @@ Page({
    */
   onShow: function () {
     this.setData({
-      currentId: 1,
       pageNumber: 1,
       orgined: [],
       willorgin: []
     })
-    console.log(this.data.currentId)
     // this.checkList(this.data.currentId)
     this.checkList(this.data.currentId, this.data.isSearch)
   },

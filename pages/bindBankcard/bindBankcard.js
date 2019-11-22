@@ -4,6 +4,10 @@ let util = require('../../utils/util.js')
 let app = getApp();
 Page({
   data: {
+    inputCode: '',
+    isClick: true, //是否可添加点击事件
+    gettoto: "获取验证码", //按钮说明
+    count: 60, // 秒数倒计时
     userNum: '',
     //查询
     // bankName_index: 0, //开户行名称
@@ -46,11 +50,10 @@ Page({
     })
   },
   //发送验证码
-  sendMsg: function(e) {
-    var phone = this.data.phone; //手机号
-    var inputCode = this.data.inputCode; //验证码
+  sendMsg: function() {
     var that = this;
-    console.log(phone, inputCode)
+    var phone = this.data.phone; //手机号
+    var code = this.data.code; //验证码
     if (phone == '') {
       wx.showToast({
         title: '请输入您的手机号',
@@ -64,39 +67,43 @@ Page({
         function(res) {
           console.log(res)
           if (res.code == 1) {
+            //设置验证码 并开始倒计时
             that.setData({
-              sendNum: res.data.sendNum
+              sendNum: res.data.sendNum, //后端返回的验证码
+              isClick: false,
+              gettoto: "秒重新获取"
+            })
+            that.timer();
+          } else {
+            wx.showToast({
+              title: res.message,
+              icon: 'none',
+              duration: 2000
             })
           }
         })
-      this.setData({
-        alreadySend: true,
-        send: false
-      })
-      this.timer()
     }
   },
   timer: function() { //计时器
-    let promise = new Promise((resolve, reject) => {
-      let setTimer = setInterval(
-        () => {
-          this.setData({
-            second: this.data.second - 1
-          })
-          if (this.data.second <= 0) {
-            this.setData({
-              second: 60,
-              alreadySend: false,
-              send: true
-            })
-            resolve(setTimer)
-          }
-        }, 1000)
-    })
-    promise.then((setTimer) => {
-      clearInterval(setTimer)
-    })
+    var second = 60;
+    var that = this;
+    var appCount = setInterval(function() {
+      second = second - 1;
+      that.setData({
+        count: second
+      })
+      if (second < 1) {
+        clearInterval(appCount);
+        //取消置顶的setInterval函数将要执行的代码
+        that.setData({
+          isClick: true,
+          gettoto: "重新获取",
+          count: 60
+        })
+      }
+    }, 1000)
   },
+
   //提交表单
   formSubmit(e) {
     // wx.navigateTo({
@@ -107,7 +114,7 @@ Page({
     var bankcardname = e.detail.value.bankcardname; //真实姓名
     var bankcardnum = e.detail.value.bankcardnum; //银行卡号
     var phone = this.data.phone; //预留手机号
-    // var sendNum = this.data.inputCode; //验证码
+    var inputCode = this.data.inputCode; //验证码
     var sendNum = this.data.sendNum;
     var remarks = this.data.remarks;
     if (contactsMsg_relation == '请选择') {
@@ -124,9 +131,9 @@ Page({
         duration: 1500
       })
       return false;
-    } else if (bankcardnum == '') {
+    } else if (bankcardnum == '' || !(/^[1-9]\d{9,29}$/.test(bankcardnum))) {
       wx.showToast({
-        title: '请输入银行卡号',
+        title: '请输入正确的银行卡号',
         icon: 'none',
         duration: 1500
       })
@@ -145,14 +152,14 @@ Page({
         duration: 1500
       })
       return false;
-    } else if (inputCode == '') {
-      wx.showToast({
-        title: '请输入验证码',
-        icon: 'none',
-        duration: 1500
-      })
-      return false;
-    } else if (remarks == "") {
+    // } else if (inputCode == '') {
+    //   wx.showToast({
+    //     title: '请输入验证码',
+    //     icon: 'none',
+    //     duration: 1500
+    //   })
+    //   return false;
+    } else if (remarks == null || remarks == "") {
       wx.showToast({
         title: '请输入备注信息',
         icon: 'none',
@@ -160,22 +167,25 @@ Page({
       })
       return false;
     } else {
-      util.rePost('/bank/saveBankCard', {
-        updateType: 1, //修改传1，添加传0
+      util.rePost('/bank/updateBankCard', {
         phoneNo: '18706741850', //手 机 号
-        // userNum: '11111', //用 户 号
         userNum: this.data.userNum,
         bcOpeningBank: contactsMsg_index, //开户行名称下标
         realName: bankcardname, //真实姓名
         bcCardNum: bankcardnum, //银行卡号
         bcPhone: phone, //预留手机
-        sendNum: sendNum // 验证码
+        // sendNum: sendNum, // 验证码
+        // code: inputCode,
+        remarks: remarks
       }, function(res) {
         console.log(res)
         if (res.code == 1) {
+          wx.navigateBack({
+            detail: 1
+          })
           wx.hideLoading()
           wx.showToast({
-            title: '添加成功',
+            title: '修改成功',
           })
         } else {
           wx.showToast({
@@ -192,7 +202,6 @@ Page({
       title: '加载中...',
     })
     util.reGet('/bank/queryDetails', {
-      // userNum: '11111' //用户号 11位
       userNum: this.data.userNum
     }, function(res) {
       console.log(res)

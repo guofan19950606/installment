@@ -66,7 +66,7 @@ Page({
     })
   },
   //监听用户输入搜索框内容
-  watchKeyWord: function(event) {
+  EnterInput: function(event) {
     let num = event.detail.value.length
     console.log(event.detail.value)
     console.log(num)
@@ -162,6 +162,9 @@ Page({
           pages: res.data.pages
         })
       } else {
+        that.setData({
+          roginlist: "",
+        })
         wx.showToast({
           title: res.message,
           icon: 'none',
@@ -218,16 +221,15 @@ Page({
   //添加课程
   powerDrawerClose(e) {
     var that = this;
-
     console.log(e)
     var courseNum = e.currentTarget.dataset.coursenum;
     console.log(courseNum)
-    var eduName = this.data.eduName;
-    var eduNum = this.data.eduNum
-    var courseName = this.data.courseName;
-    var classDay = this.data.classDay;
-    var classHour = this.data.classHour;
-    var classPrice = this.data.classPrice;
+    var eduName = this.data.eduName; //机构名称
+    var eduNum = this.data.eduNum //机构编号
+    var courseName = this.data.courseName; //课程名
+    var classDay = this.data.classDay; //课节
+    var classHour = this.data.classHour; //课时
+    var classPrice = this.data.classPrice; //价格
     if (courseName == "") {
       wx.showToast({
         title: '请输入课程',
@@ -285,14 +287,14 @@ Page({
   updatepowerDrawerClose(e) {
     var that = this;
     console.log(e)
-    var eduName = this.data.eduName;
+    var eduName = this.data.eduName; //机构名称
     var eduNum = this.data.eduNum
     var courseNum = e.currentTarget.dataset.coursenum;
     console.log(courseNum)
     var courseName = this.data.updatecourseName;
-    var classDay = this.data.updateclassDay;
-    var classHour = this.data.updateclassHour;
-    var classPrice = this.data.updateclassPrice;
+    var classDay = this.data.updateclassDay; //课节
+    var classHour = this.data.updateclassHour; //课时
+    var classPrice = this.data.updateclassPrice; //价格
     if (courseName == "") {
       wx.showToast({
         title: '请输入课程',

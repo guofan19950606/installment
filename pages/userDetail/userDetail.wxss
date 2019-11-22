@@ -28,8 +28,8 @@
 .userinfo_site{
   display: flex;
   align-items: center;
-  width: 138rpx;
-  justify-content: space-between;
+  width: 300rpx;
+  justify-content:flex-end;
 }
 
 .userinfo_site i{
@@ -65,7 +65,7 @@
 .userinfo_card_image{
   width: 291rpx;
   height: 174rpx;
-  background: #BFBFBF;
+  background: #fff;
 }
 .rests_card{
   padding: 38rpx 0 28rpx 0;

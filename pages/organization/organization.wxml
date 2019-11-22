@@ -30,9 +30,20 @@
       <view>机构联系邮箱</view>
       <input type="text" placeholder="请输入机构联系邮箱" value="{{eduConEmail}}"  bindinput="org_eduConEmail" />
     </view>
-    <view class="students_list">
+    <!-- <view class="students_list">
       <view>机构开户行名称</view>
       <input type="text" placeholder="请输入机构开户行名称" value="{{eduBankName}}"   bindinput="org_eduBankName"/>
+    </view> -->
+    <view class="students_list">
+      <label class="name">开户行名称</label>
+      <picker bindchange="contactsMsg_relation" value="{{contactsMsg_index}}" range="{{contactsMsg_relation}}">
+        <view class="picker" data-id='{{contactsMsg_index}}'>
+          <text class="conindex">{{contactsMsg_relation[contactsMsg_index]}}</text>
+          <view>
+            <image src="/images/arrow_right.png"></image>
+          </view>
+        </view>
+      </picker>
     </view>
     <view class="students_list">
       <view>机构银行账户</view>

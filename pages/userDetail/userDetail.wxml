@@ -301,7 +301,7 @@
     <view class="check_Result">
         <view class="check_Msg">
             <view class="section app-fz26">
-              <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <picker disabled="{{disable}}" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
                 <view class="picker">
                   审核：
                 <view class="picker_content">
@@ -315,7 +315,7 @@
             <view class="section app-fz26">
                 <view class="remark">
                   备注：
-                <textarea class="remark_content app-fz24" bindinput="watchValue" value="{{textareaValue}}" placeholder-class="placeholderStyle" placeholder="请输入备注信息"></textarea>
+                <textarea disabled="{{disable}}" class="remark_content app-fz24" bindinput="watchValue" value="{{textareaValue}}" placeholder-class="placeholderStyle" placeholder="请输入备注信息"></textarea>
                 </view>
             </view>
         </view>

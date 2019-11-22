@@ -62,34 +62,74 @@ Page({
         wx.uploadFile({
           // http://192.168.0.105:5555
           // url: util.rootDocment + '/certificate/uploadAddImg',
-          url: 'http://192.168.0.108:9089/certificate/uploadAddImg',
+          // url: 'http://192.168.0.108:9089/certificate/uploadAddImg',
+          url: util.rootDocment+'/certificate/uploadAddImg',
+
           filePath: tempFiles[0],
           name: 'files',
           formData: {
             files: tempFiles,
             // userNum: '65465765464565476876876'
-            userNum: this.data.userNum
+            userNum: that.data.userNum
+          },
+          header: {
+            'content-Type': 'application/json',
+            'Authorization': 'Bearer ' + wx.getStorageSync('userinfo').token
           },
           success(res) {
             console.log(res)
-            var native_url = JSON.parse(res.data).data.url0; //本地url
-            var completion_url = JSON.parse(res.data).data.wholeurl0; //完整url地址
-            let ret = JSON.parse(res.data);
-            if (ret.code == "1") {
-              wx.hideLoading()
-              if (fourindex == 1 && that.data.tempFilePaths1 == '/images/renzCard2.png') {
-                that.setData({
-                  imgShow1: true,
-                  tempFilePaths1: completion_url, //图片显示 全路径
-                  tempFilePaths1_half: native_url //上传数据库  半路径
-                })
-              }
-              if (fourindex == 2 && that.data.tempFilePaths2 == '/images/renzCard.png') {
-                that.setData({
-                  imgShow2: true,
-                  tempFilePaths2: completion_url, //图片显示 全路径
-                  tempFilePaths2_half: native_url //上传数据库  半路径
-                })
+            if (res.statusCode == 401) { // 401为token失效, 403为单点登录
+              wx.hideLoading();
+              wx.showModal({
+                title: '提示',
+                content: '登录过期，请重新登录',
+                cancelText: '确定',
+                showCancel: false,
+                success(res) {
+                  if (res.confirm) {
+                    // 用户点击了确定属性的按钮
+                    wx.reLaunch({
+                      url: '/pages/login/login'
+                    })
+                  }
+                }
+              })
+            } else if (res.statusCode == 403) {
+              wx.hideLoading();
+              wx.showModal({
+                title: '提示',
+                content: '您的账户已在其他设备登录，请重新登录',
+                cancelText: '确定',
+                showCancel: false,
+                success: function (result) {
+                  if (result.confirm) {
+                    wx.redirectTo({
+                      url: '/pages/login/login',
+                    })
+                  }
+                }
+              })
+            } else {
+              console.log(res)
+              var native_url = JSON.parse(res.data).data.url0; //本地url
+              var completion_url = JSON.parse(res.data).data.wholeurl0; //完整url地址
+              let ret = JSON.parse(res.data);
+              if (ret.code == "1") {
+                wx.hideLoading()
+                if (fourindex == 1 && that.data.tempFilePaths1 == '/images/renzCard2.png') {
+                  that.setData({
+                    imgShow1: true,
+                    tempFilePaths1: completion_url, //图片显示 全路径
+                    tempFilePaths1_half: native_url //上传数据库  半路径
+                  })
+                }
+                if (fourindex == 2 && that.data.tempFilePaths2 == '/images/renzCard.png') {
+                  that.setData({
+                    imgShow2: true,
+                    tempFilePaths2: completion_url, //图片显示 全路径
+                    tempFilePaths2_half: native_url //上传数据库  半路径
+                  })
+                }
               }
             }
           }
@@ -196,35 +236,72 @@ Page({
       var imagePer = images_for[i]
       // 上传图片
       wx.uploadFile({
-        url: 'http://192.168.0.108:9089/certificate/uploadAddImg',
+        // url: 'http://192.168.0.108:9089/certificate/uploadAddImg',
+        url: util.rootDocment+'/certificate/uploadAddImg',
         // url: util.rootDocment + '/certificate/uploadAddImg',
         filePath: imagePer,
         name: 'files',
         formData: {
           files: imagePer,
-          // userNum: '65465765464565476876876'
-          userNum: this.data.userNum
+          userNum: that.data.userNum
+        },
+        header: {
+          'content-Type': 'application/json',
+          'Authorization': 'Bearer ' + wx.getStorageSync('userinfo').token
         },
         success(res) {
-          if (JSON.parse(res.data).code == 1) {
-            wx.hideLoading()
-            var native_url = JSON.parse(res.data).data.url0; //本地url
-            var completion_url = JSON.parse(res.data).data.wholeurl0; //完整url地址
-            imagesArr.push(completion_url)
-            imagesArr_half.push(native_url)
-            if ('' == images_house && '' == images_houseHalf) {
-              that.setData({
-                images_house: imagesArr,
-                images_houseHalf: imagesArr_half
-              })
-            } else {
-              that.setData({
-                images_house: images_house.concat(imagesArr),
-                images_houseHalf: images_houseHalf.concat(imagesArr_half), //半路径
-              })
+          if (res.statusCode == 401) { // 401为token失效, 403为单点登录
+            wx.hideLoading();
+            wx.showModal({
+              title: '提示',
+              content: '登录过期，请重新登录',
+              cancelText: '确定',
+              showCancel: false,
+              success(res) {
+                if (res.confirm) {
+                  // 用户点击了确定属性的按钮
+                  wx.reLaunch({
+                    url: '/pages/login/login'
+                  })
+                }
+              }
+            })
+          } else if (res.statusCode == 403) {
+            wx.hideLoading();
+            wx.showModal({
+              title: '提示',
+              content: '您的账户已在其他设备登录，请重新登录',
+              cancelText: '确定',
+              showCancel: false,
+              success: function (result) {
+                if (result.confirm) {
+                  wx.redirectTo({
+                    url: '/pages/login/login',
+                  })
+                }
+              }
+            })
+          } else {
+            if (JSON.parse(res.data).code == 1) {
+              wx.hideLoading()
+              var native_url = JSON.parse(res.data).data.url0; //本地url
+              var completion_url = JSON.parse(res.data).data.wholeurl0; //完整url地址
+              imagesArr.push(completion_url)
+              imagesArr_half.push(native_url)
+              if ('' == images_house && '' == images_houseHalf) {
+                that.setData({
+                  images_house: imagesArr,
+                  images_houseHalf: imagesArr_half
+                })
+              } else {
+                that.setData({
+                  images_house: images_house.concat(imagesArr),
+                  images_houseHalf: images_houseHalf.concat(imagesArr_half), //半路径
+                })
+              }
             }
           }
-        },
+        }
       })
     }
   },
@@ -297,11 +374,11 @@ Page({
           imgArrList_half.push(imgArr[i])
         }
         that.setData({
-          tempFilePaths1: app.globalData.fileIp + res.data.ddNoBack,
-          tempFilePaths2: app.globalData.fileIp + res.data.ddNoPositive,
+          tempFilePaths1: app.globalData.fileIp + res.data.ddNoPositive,
+          tempFilePaths2: app.globalData.fileIp + res.data.ddNoBack,
           images_house: imgArrList, //其他证件
-          tempFilePaths1_half: res.data.ddNoBack,
-          tempFilePaths2_half: res.data.ddNoPositive,
+          tempFilePaths1_half: res.data.ddNoPositive,
+          tempFilePaths2_half: res.data.ddNoBack,
           images_houseHalf: imgArrList_half, //其他证件
           ddId: res.data.ddId,
           imgShow1: true,
@@ -321,11 +398,14 @@ Page({
     var tempFilePaths2_half = this.data.tempFilePaths2_half;
     // 其他证件
     var images_houseHalf = this.data.images_houseHalf.toString();
+    var remarks = this.data.remarks
+    console.log(remarks)
     console.log(this.data.ddId)
     console.log(tempFilePaths1_half)
-    if (tempFilePaths1_half == '' || tempFilePaths2_half == '' || images_houseHalf.length == 0) {
+    if (tempFilePaths1_half == '' || tempFilePaths2_half == '' || images_houseHalf.length == 0 || remarks == "" || remarks == null) {
       wx.showToast({
-        title: '请上传资料',
+        title: '请完善个人资料',
+        icon: "none"
       })
     } else {
       util.rePost('/certificate/addPapersDateByUserNum', {
@@ -339,6 +419,9 @@ Page({
         remarks: this.data.remarks
       }, res => {
         if (res.code == 1) {
+          wx.navigateBack({
+            detail: 1
+          })
           wx.hideLoading();
           wx.showToast({
             title: res.message,

@@ -13,7 +13,8 @@ Page({
     textareaValue:'',//获取文本域输入信息
     ddNoPositive:"",//身份证正面照片  
     ddNoBack:"",//身份证反面照片
-    ddOther:[]//其他照片
+    ddOther:[],//其他照片
+    disable:false
   },
   //返回上一级页面
   handlerGobackClick(delta) {
@@ -35,6 +36,7 @@ Page({
         userNum: JSON.parse(options.data)
       })
     this.getDetailInfo()
+   
   },
   //监听value变化
   watchValue(e){
@@ -69,7 +71,16 @@ Page({
             ddNoBack: ddNoBack,
             ddOther: ddOther
           })
-          console.log(that.data.textareaValue)
+          console.log(that.data.index)
+          if (that.data.index==2){
+            that.setData({
+              disable:false
+            })
+          }else{
+            that.setData({
+              disable: true
+            })
+          }
         } else {
           wx.showToast({
             title: res.message,
@@ -82,7 +93,7 @@ Page({
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
     })
   },
   //控制企业，学校等地址显示隐藏
@@ -100,6 +111,16 @@ Page({
   // 点击保存按钮
   saveInfo(){
     var that = this;
+    console.log(that.data.textareaValue.length,"123")
+    if (that.data.textareaValue==null || that.data.textareaValue==""){
+      wx:wx.showToast({
+        title: '请填写备注',
+        icon:"none",
+        duration: 1500,
+      })
+      return false
+    }
+   
     wx.showLoading({
       title: '加载中',
     })

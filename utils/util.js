@@ -29,80 +29,109 @@ function tsFormatTime(timestamp, format) {
   }
   return format;
 }
+let rootDocment = "http://192.168.0.108:9089"
+// let rootDocment = "http://192.168.1.31:9089"
+// let rootDocment = "http://192.168.0.14:9089"
 
-let rootDocment = "http://192.168.0.11:9089";//测试旗舰
-// let rootDocment = "http://192.168.0.105:5555";//测试
-// let rootDocment = "http://192.168.0.108:9089";//开发杜琪
 
 function rePost(url, data, cb, noAuth) { // post
-  var getToken = wx.getStorageSync('userinfo').token;  
+  var getToken = wx.getStorageSync('userinfo').token;
   let obj
-  if (getToken && !noAuth) {//有token noAuth无值
+  if (getToken && !noAuth) { //有token noAuth无值
     obj = {
       'content-Type': 'application/json',
-      'Authorization': "Bearer "+getToken
+      'Authorization': "Bearer " + getToken
     }
   } else {
     obj = {
       'content-Type': 'application/json'
     }
   }
-  console.log(obj, 'obj')
-
+  var phoneNo = wx.getStorageSync('userinfo').phoneNo
+  console.log(phoneNo)
   wx.request({
-    url: rootDocment + url,
-    data: data,
+    url: rootDocment+"/user/isStill",
+    data: {
+      phoneNo: phoneNo
+    },
     method: 'POST',
     dataType: 'json',
-    header: obj,
-    success: function (res) {
-      console.log(res,"_____guogafafsau")
-      if (res.statusCode == 401) { //token失效
-      console.log(res,"resData")
-        wx.showModal({
-          title: '提示',
-          content: '登录过期，请重新登陆',
-          cancelText: '确定',
-          showCancel: false,
-          success(res) {
-            if (res.confirm) {
-              // 用户点击了取消属性的按钮
-              wx.reLaunch({
-                url: '/pages/login/login',
+    header: {
+      'content-Type': 'application/json'
+    },
+    success: function(res) {
+      console.log(res)
+      if (res.data.code == 116) {
+        wx.request({
+          url: rootDocment + url,
+          data: data,
+          method: 'POST',
+          dataType: 'json',
+          header: obj,
+          success: function(res) {
+            console.log(res, "_____guogafafsau")
+            if (res.statusCode == 401) { //token失效
+              console.log(res, "resData")
+              wx.showModal({
+                title: '提示',
+                content: '登录过期，请重新登陆',
+                cancelText: '确定',
+                showCancel: false,
+                success(res) {
+                  if (res.confirm) {
+                    // 用户点击了取消属性的按钮
+                    wx.reLaunch({
+                      url: '/pages/login/login',
+                    })
+                  }
+                }
+              })
+            } else if (res.statusCode == 403) {
+              wx.showModal({
+                title: '提示',
+                content: '您的账户已在其他设备登录，请重新登录',
+                cancelText: '确定',
+                showCancel: false,
+                success: function(result) {
+                  if (result.confirm) {
+                    wx.redirectTo({
+                      url: '/pages/login/login',
+                    })
+                  }
+                }
               })
             }
+            return typeof cb == "function" && cb(res.data)
+          },
+          fail: function() {
+            return typeof cb == "function" && cb(false)
+          },
+          complete: function() {
+            return
           }
         })
-      } else if (res.statusCode == 403){
-        wx.showModal({
-          title: '提示',
-          content: '您的账户已在其他设备登录，请重新登录',
-          cancelText: '确定',
-          showCancel: false,
-          success: function (result) {
-            if (result.confirm) {
-              wx.redirectTo({
-                url: '/pages/login/login',
-              })
-            }
-          }
+      } else {
+        wx.showToast({
+          title: "账户已被禁用，请重新登录",
+          icon: "none",
+          duration: 2000
         })
+        setTimeout(function(){
+          wx.navigateTo({
+            url: '/pages/login/login',
+          })
+        },2000)
       }
-      return typeof cb == "function" && cb(res.data)
-    },
-    fail: function () {
-      return typeof cb == "function" && cb(false)
-    },
-    complete: function () {
-      return
     }
   })
+  console.log(obj, 'obj')
 }
 
 function reGet(url, data, cb, noAuth) { // get
   var getToken = wx.getStorageSync('userinfo').token;
+  var phoneNo = wx.getStorageSync('userinfo').phoneNo
   let obj
-  if (getToken && !noAuth) {//有token noAuth无值
+  if (getToken && !noAuth) { //有token noAuth无值
     obj = {
       'content-Type': 'application/x-www-form-urlencoded',
       'Authorization': "Bearer " + getToken
@@ -114,48 +143,74 @@ function reGet(url, data, cb, noAuth) { // get
   }
   console.log(obj, 'obj')
   wx.request({
-    url: rootDocment + url,
-    data: data,
-    method: 'get',
-    header: obj,
-    dataType: 'json',
-    success: function (res) {
-      console.log(res, "_____guogafafsau")
-      if (res.statusCode == 401) { //token失效
-        wx.showModal({
-          title: '提示',
-          content: '登录过期，请重新登陆',
-          cancelText: '确定',
-          showCancel:false,
-          success(res) {
-            console.log(res,"res.data")
-            if (res.confirm) {
-              // 用户点击了取消属性的按钮
-              wx.reLaunch({
-                url: '/pages/login/login',
-              })
-            }
-          }
-        })
-      } else if (res.statusCode == 403){
-        wx.showModal({
-          title: '提示',
-          content: '您的账户已在其他设备登录，请重新登录',
-          cancelText: '确定',
-          showCancel: false,
-          success: function (result) {
-            if (result.confirm) {
-              wx.redirectTo({
-                url: '/pages/login/login',
-              })
-            }
-          }
-        })
-      }
-      return typeof cb == "function" && cb(res.data)
+    url: rootDocment + "/user/isStill",
+    data: {
+      phoneNo: phoneNo
     },
-    fail: function () {
-      return typeof cb == "function" && cb(false)
+    method: 'POST',
+    dataType: 'json',
+    header: {
+      'content-Type': 'application/json'
+    },
+    success: function(res) {
+      if (res.data.code == 116) {
+        wx.request({
+          url: rootDocment + url,
+          data: data,
+          method: 'get',
+          header: obj,
+          dataType: 'json',
+          success: function(res) {
+            console.log(res, "_____guogafafsau")
+            if (res.statusCode == 401) { //token失效
+              wx.showModal({
+                title: '提示',
+                content: '登录过期，请重新登陆',
+                cancelText: '确定',
+                showCancel: false,
+                success(res) {
+                  console.log(res, "res.data")
+                  if (res.confirm) {
+                    // 用户点击了取消属性的按钮
+                    wx.reLaunch({
+                      url: '/pages/login/login',
+                    })
+                  }
+                }
+              })
+            } else if (res.statusCode == 403) {
+              wx.showModal({
+                title: '提示',
+                content: '您的账户已在其他设备登录，请重新登录',
+                cancelText: '确定',
+                showCancel: false,
+                success: function(result) {
+                  if (result.confirm) {
+                    wx.redirectTo({
+                      url: '/pages/login/login',
+                    })
+                  }
+                }
+              })
+            }
+            return typeof cb == "function" && cb(res.data)
+          },
+          fail: function() {
+            return typeof cb == "function" && cb(false)
+          }
+        })
+      } else {
+        wx.showToast({
+          title: "账户已被禁用，请重新登录",
+          icon: "none",
+          duration:2000
+        })
+        setTimeout(function () {
+          wx.navigateTo({
+            url: '/pages/login/login',
+          })
+        }, 2000)
+      }
     }
   })
 }
@@ -163,5 +218,6 @@ module.exports = {
   formatTime: formatTime,
   reGet,
   rePost,
-  tsFormatTime: tsFormatTime
+  tsFormatTime: tsFormatTime,
+  rootDocment
 }

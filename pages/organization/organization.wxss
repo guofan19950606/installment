@@ -1,5 +1,7 @@
 .organization {
   width: 100%;
+  background: #fff !important;
+  padding-bottom: 80rpx;
 }
 
 .contanier {
@@ -17,10 +19,45 @@
   color: #333;
 }
 
+.name {
+  display: block;
+  margin-top: 30rpx;
+  font-size: 36rpx;
+  color: #333;
+}
+
 .students_list input {
   font-size: 28rpx;
   color: #999;
   padding: 6rpx;
+}
+
+/* 开户行名称 */
+
+.picker {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: 20rpx !important;
+}
+
+.picker>text {
+  font-size: 32rpx;
+  color: #ddd !important;
+  padding-left: 4rpx;
+}
+
+.picker view {
+  width: 20rpx;
+  height: 30rpx;
+  margin-top: -2rpx;
+}
+
+.picker view image {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+  padding-top: 10rpx;
 }
 
 .nextBtn {

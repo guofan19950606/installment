@@ -5,7 +5,7 @@
     <view class="search_Msg">
       <view class="search_Icon">
         <i class="iconfont icon-sousuo"></i>
-        <input class="app-fz24 search_Input" value="{{inputValue}}" bindinput='watchKeyWord' placeholder-style="font-size:24rpx;color:#828282;" placeholder="课程名称" />
+        <input class="app-fz24 search_Input" value="{{inputValue}}" bindinput='watchKeyWord' placeholder-style="font-size:24rpx;color:#828282;" placeholder="课程名称" bindblur="EnterInput" />
       </view>
       <view class="search_close" wx:if="{{inputLength != 0}}" bindtap='clearInputEvent'>
         <i class="iconfont icon-guanbi app-fz20"></i>

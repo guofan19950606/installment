@@ -1,5 +1,6 @@
 .containerren {
-  overflow-y: auto;
+  /* overflow-y: auto; */
+  background: #fff;
 }
 
 ::-webkit-scrollbar {

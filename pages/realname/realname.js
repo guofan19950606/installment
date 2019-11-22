@@ -79,7 +79,7 @@ Page({
     }
   },
   //职业类型切换
-  activeBtn: function(e) {
+  activeBtn: function (e) {
     var index = e.currentTarget.dataset.index;
     console.log(index)
     this.setData({
@@ -87,7 +87,7 @@ Page({
     })
   },
   // 是否同意协议
-  radioClick: function(event) {
+  radioClick: function (event) {
     var radioCheck = this.data.radioCheck;
     this.setData({
       "radioCheck": !radioCheck
@@ -284,11 +284,8 @@ Page({
   },
   // 学生按钮
   students_nextBtn(e) {
-    wx.navigateTo({
-      url: '/pages/renzMsg/renzMsg',
-    })
     // 校验
-    if (this.data.realname == '' || this.data.students_schoolName == '' || this.data.students_schoolAddress == '' || this.data.students_phone == '' || this.data.students_qq == '' || this.data.students_wechat == '' || this.data.students_email == '' || this.data.students_nowAddress == '' || this.data.students_mark == "") {
+    if (this.data.realname == '' || this.data.students_schoolName == '' || this.data.students_schoolAddress == '' || this.data.students_phone == '' || this.data.students_qq == '' || this.data.students_wechat == '' || this.data.students_email == '' || this.data.students_nowAddress == '' || this.data.students_mark == null || this.data.students_mark == '') {
       wx.showToast({
         title: '请完善您的信息',
         icon: 'none'
@@ -321,8 +318,11 @@ Page({
         currentAddress: this.data.students_nowAddress, //现居地址
         remarks: this.data.students_mark,
         rnaId: this.data.students_rnaId
-      }, function(res) {
+      }, function (res) {
         if (res.code == 1) {
+          wx.navigateBack({
+            detail: 1
+          })
           wx.showToast({
             title: res.message,
             icon: 'success',
@@ -341,7 +341,7 @@ Page({
   // 公司职员按钮
   employee_nextBtn(e) {
     // 校验
-    if (this.data.realname == '' || this.data.employee_comName == '' || this.data.employee_address == '' || this.data.employee_position == '' || this.data.employee_money == '' || this.data.employee_phone == '' || this.data.employee_qq == '' || this.data.employee_wechat == '' || this.data.employee_email == '' || this.data.employee_nowAddress == '' || this.data.employee_mark == "") {
+    if (this.data.realname == '' || this.data.employee_comName == '' || this.data.employee_address == '' || this.data.employee_position == '' || this.data.employee_money == '' || this.data.employee_phone == '' || this.data.employee_qq == '' || this.data.employee_wechat == '' || this.data.employee_email == '' || this.data.employee_nowAddress == '' || this.data.employee_mark == null || this.data.employee_mark == "") {
       wx.showToast({
         title: '请完善您的信息',
         icon: 'none'
@@ -376,8 +376,11 @@ Page({
         currentAddress: this.data.employee_nowAddress, //现居地址
         remarks: this.data.employee_mark,
         rnaId: this.data.employee_rnaId
-      }, function(res) {
+      }, function (res) {
         if (res.code == 1) {
+          wx.navigateBack({
+            detail: 1
+          })
           wx.showToast({
             title: res.message,
             icon: 'success',
@@ -394,7 +397,8 @@ Page({
   // 企业主按钮
   company_nextBtn(e) {
     // 校验
-    if (this.data.realname == '' || this.data.company_name == '' || this.data.company_address == '' || this.data.company_code == '' || this.data.company_phone == '' || this.data.company_qq == '' || this.data.company_wechat == '' || this.data.company_email == '' || this.data.company_nowAddress == '' || this.data.company_mark == "") {
+    console.log(this.data.company_mark)
+    if (this.data.realname == '' || this.data.company_name == '' || this.data.company_address == '' || this.data.company_code == '' || this.data.company_phone == '' || this.data.company_qq == '' || this.data.company_wechat == '' || this.data.company_email == '' || this.data.company_nowAddress == '' || this.data.company_mark == null || this.data.company_mark == "") {
       wx.showToast({
         title: '请完善您的信息',
         icon: 'none'
@@ -428,8 +432,11 @@ Page({
         currentAddress: this.data.company_nowAddress, //现居地址
         remarks: this.data.company_mark,
         rnaId: this.data.company_rnaId
-      }, function(res) {
+      }, function (res) {
         if (res.code == 1) {
+          wx.navigateBack({
+            detail: 1
+          })
           wx.showToast({
             title: res.message,
             icon: 'success',
@@ -446,7 +453,7 @@ Page({
   // 待业按钮
   jobwaiting_nextBtn(e) {
     // 校验
-    if (this.data.realname == '' || this.data.jobwaiting_name == '' || this.data.jobwaiting_phone == '' || this.data.jobwaiting_address == '' || this.data.jobwaiting_mobile == '' || this.data.jobwaiting_qq == '' || this.data.jobwaiting_wechat == '' || this.data.jobwaiting_email == '' || this.data.jobwaiting_nowAddress == '' || this.data.jobwaiting_mark == "") {
+    if (this.data.realname == '' || this.data.jobwaiting_name == '' || this.data.jobwaiting_phone == '' || this.data.jobwaiting_address == '' || this.data.jobwaiting_mobile == '' || this.data.jobwaiting_qq == '' || this.data.jobwaiting_wechat == '' || this.data.jobwaiting_email == '' || this.data.jobwaiting_nowAddress == '' || this.data.jobwaiting_mark == null || this.data.jobwaiting_mark == "") {
       wx.showToast({
         title: '请完善您的信息',
         icon: 'none'
@@ -481,8 +488,14 @@ Page({
         currentAddress: this.data.jobwaiting_nowAddress, //现居地址
         remarks: this.data.jobwaiting_mark,
         rnaId: this.data.jobwaiting_rnaId
-      }, function(res) {
+      }, function (res) {
         if (res.code == 1) {
+          // wx.navigateTo({
+          //   url: '/pages/customer/customer',
+          // })
+          wx.navigateBack({
+            detail: 1
+          })
           wx.showToast({
             title: res.message,
             icon: 'success',
@@ -502,7 +515,7 @@ Page({
     var that = this;
     util.rePost('/realName/getRealName', {
       userNum: this.data.userNum
-    }, function(res) {
+    }, function (res) {
       console.log(res)
       that.setData({
         jobType: res.data.records[0].jobType,
@@ -567,10 +580,10 @@ Page({
       }
     })
   },
-  onShow: function() {
+  onShow: function () {
     this.checkform()
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     console.log(options)
     this.data.userNum = options.userNum
   }

@@ -1,13 +1,18 @@
-.realnameform{
-   overflow-y: auto;
+.realnameform {
+  /* overflow-y: auto; */
+  background: #fff !important;
+  padding-bottom: 80rpx;
 }
+
 /* 去掉滚动条 */
+
 ::-webkit-scrollbar {
   width: 0;
   height: 0;
   color: transparent;
   display: none;
 }
+
 .realname, .students, .employee, .company, .jobwaiting {
   width: 634rpx;
   margin: 0 auto;
@@ -91,6 +96,9 @@
   font-size: 28rpx;
   color: #999;
   padding: 6rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* 同意协议 */

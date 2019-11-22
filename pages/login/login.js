@@ -9,17 +9,14 @@ Page({
     hidenphone: true,
     hidenpassword: true
   },
-  phone(e) { //手机号
-    this.setData({
-      phone: e.detail.value
-    })
-    console.log(this.data.phone)
-  },
   password(e) { //密码
     this.setData({
       password: e.detail.value
     })
     console.log(this.data.password)
+  },
+  EnterInput() {
+    this.loginBtn();
   },
   loginBtn() { //登录按钮
     var phone = this.data.phone;
@@ -47,36 +44,62 @@ Page({
       })
       return false
     } else {
-      // wx.setStorage({
-      //   key: 'loginMsg',
-      //   data: password,
-      // })
       var that = this;
-      util.rePost('/user/login', {
+      console.log(util.rootDocment)
+      wx.request({
+        url: util.rootDocment+"/user/login",
+        data: {
           phoneNo: phone,
           password: password,
           platform: 1,
-          identifying: 1
         },
-        function(res) {
-          console.log(res,"___123")
-          if (res.code == 200) {
+        method: 'POST',
+        dataType: 'json',
+        header: {
+          'content-Type': 'application/json'
+        },
+        success: function(res) {
+          if (res.data.code == 200) {
             wx.hideLoading()
-            wx.setStorageSync('userinfo', res.data)
-            wx.setStorageSync('Token', res.data.token)
+            wx.setStorageSync('userinfo', res.data.data)
+            wx.setStorageSync('Token', res.data.data.token)
             wx.switchTab({
               url: '/pages/home/home'
             })
           } else {
             wx.hideLoading()
             wx.showToast({
-              title: res.message,
+              title: res.data.message,
               icon: 'none',
-              duration:2000
+              duration: 2000
             })
           }
-          console.log(res)
-        },"noAuth")
+        }
+      })
+
+      // util.rePost('/user/login', {
+      //     phoneNo: phone,
+      //     password: password,
+      //     platform: 1,
+      //   },
+      //   function(res) {
+      //     if (res.code == 200) {
+      //       wx.hideLoading()
+      //       wx.setStorageSync('userinfo', res.data)
+      //       wx.setStorageSync('Token', res.data.token)
+      //       wx.switchTab({
+      //         url: '/pages/home/home'
+      //       })
+      //     } else {
+      //       wx.hideLoading()
+      //       wx.showToast({
+      //         title: res.message,
+      //         icon: 'none',
+      //         duration: 2000
+      //       })
+      //     }
+      //     console.log(res)
+      //   }, "noAuth")
     }
   },
   phone(e) { //手机号
@@ -91,21 +114,13 @@ Page({
           hidenphone: false,
         })
       }
+    } else {
+      this.setData({
+        hidenphone: true
+      })
     }
   },
   password(e) { //密码
-    // if (e.detail.value != '') {
-    //   if (e.detail.value.length == 6) {
-    //     this.setData({
-    //       hidenpassword: true,
-    //       password: e.detail.value
-    //     })
-    //   } else {
-    //     this.setData({
-    //       hidenpassword: false,
-    //     })
-    //   }
-    // }
     this.setData({
       password: e.detail.value
     })

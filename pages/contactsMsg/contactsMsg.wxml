@@ -18,7 +18,7 @@
       <view>
         <text>*</text> 关系
       </view>
-      <picker bindchange="contactsMsg_relation" value="{{contactsMsg_index}}" range="{{contactsMsg_relation}}">
+      <picker bindchange="contactsMsg_relation" value="{{contactsMsg_index}}" range="{{contactsMsg_relation1}}">
         <view class="picker" data-id='{{contactsMsg_index}}'>
           <text>{{contactsMsg_relation[contactsMsg_index]}}</text>
           <view>
@@ -45,9 +45,9 @@
       <view>
         <text>*</text> 关系
       </view>
-      <picker bindchange="contactsMsg_relation2" value="{{contactsMsg_index2}}" range="{{contactsMsg_relation2}}">
+      <picker bindchange="contactsMsg_relation2" value="{{contactsMsg_index2}}" range="{{contactsMsg_relation1}}">
         <view class="picker" data-id='{{contactsMsg_index2}}'>
-          <text>{{contactsMsg_relation2[contactsMsg_index2]}}</text>
+          <text>{{contactsMsg_relation[contactsMsg_index2]}}</text>
           <view>
             <image src="/images/arrow_right.png"></image>
           </view>
@@ -72,9 +72,9 @@
       <view>
         <text>*</text> 关系
       </view>
-      <picker bindchange="contactsMsg_relation3" value="{{contactsMsg_index3}}" range="{{contactsMsg_relation3}}">
+      <picker bindchange="contactsMsg_relation3" value="{{contactsMsg_index3}}" range="{{contactsMsg_relation1}}">
         <view class="picker" data-id='{{contactsMsg_index3}}'>
-          <text>{{contactsMsg_relation3[contactsMsg_index3]}}</text>
+          <text>{{contactsMsg_relation[contactsMsg_index3]}}</text>
           <view>
             <image src="/images/arrow_right.png"></image>
           </view>

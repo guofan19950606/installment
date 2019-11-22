@@ -6,16 +6,16 @@
   <view class="containerbox">
     <!-- 四个机构 -->
     <view class="boxone" bindtap="orginclick1" wx:if="{{orginshow1}}">
-      <image src="/images/home1.png" class="imgone"></image>
+      <image mode="widthFix" src="/images/home1.png" class="imgone"></image>
     </view>
     <view class="boxone" bindtap="orginclick2" wx:if="{{orginshow2}}">
-      <image src="/images/home2.png" class="imgone"></image>
+      <image mode="widthFix" src="/images/home2.png" class="imgone"></image>
     </view>
     <view class="boxone" bindtap="orginclick3" wx:if="{{orginshow3}}">
-      <image src="/images/home3.png" class="imgone"></image>
+      <image mode="widthFix" src="/images/home3.png" class="imgone"></image>
     </view>
     <view class="boxone" bindtap="orginclick4" wx:if="{{orginshow4}}">
-      <image src="/images/home4.png" class="imgone"></image>
+      <image mode="widthFix" src="/images/home4.png" class="imgone"></image>
     </view>
   </view>
 </view>

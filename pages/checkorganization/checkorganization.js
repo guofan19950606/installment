@@ -4,6 +4,8 @@ var QR = require("../../utils/qcorde.js");
 var app = getApp()
 Page({
   data: {
+    contactsMsg_index: 0, //开户行名称
+    contactsMsg_relation: ['请选择', '中国工商银行', '中国农业银行', '中国银行', '中国建设银行', '交通银行', '招商银行', '浦发银行', '中信银行', '中国光大银行', '华夏银行', '中国民生银行', '广发银行', '兴业银行', '平安银行', '浙商银行', '恒丰银行'],
     eduQrCodeUrlone: '',
     eduCode: '',
     eduCheckCode: '',
@@ -28,6 +30,12 @@ Page({
   org_eduLegalPerson(e) {
     this.setData({
       eduLegalPerson: e.detail.value
+    })
+  },
+  contactsMsg_relation(e) { //开户行名称
+    console.log(e)
+    this.setData({
+      contactsMsg_index: e.detail.value
     })
   },
   org_eduContacts(e) {
@@ -88,7 +96,7 @@ Page({
     var eduAddress = this.data.eduAddress;
     var eduConPhone = this.data.eduConPhone;
     var eduConEmail = this.data.eduConEmail;
-    var eduBankName = this.data.eduBankName;
+    var eduBankName = this.data.contactsMsg_index;
     var eduBankNum = this.data.eduBankNum;
     var eduCheckCode = this.data.eduCheckCode;
     var eduCode = this.data.eduCode;
@@ -106,7 +114,7 @@ Page({
         eduAddress: res.data.eduAddress,
         eduConPhone: res.data.eduConPhone,
         eduConEmail: res.data.eduConEmail,
-        eduBankName: res.data.eduBankName,
+        contactsMsg_index: res.data.eduBankName,
         eduBankNum: res.data.eduBankNum,
         eduCheckCode: res.data.eduCheckCode,
         eduCode: res.data.eduCode,
@@ -123,7 +131,7 @@ Page({
     var eduAddress = this.data.eduAddress;
     var eduConPhone = this.data.eduConPhone;
     var eduConEmail = this.data.eduConEmail;
-    var eduBankName = this.data.eduBankName;
+    var eduBankName = this.data.contactsMsg_index;
     var eduBankNum = this.data.eduBankNum;
     // var eduQrCodeUrl = res.data.eduQrCodeUrl;
     var eduQrCodeUrlone = this.data.eduQrCodeUrlone
@@ -155,23 +163,23 @@ Page({
         duration: 1500
       })
       return false;
-    } else if (eduConPhone == "") {
+    } else if (eduConPhone == "" || eduConPhone.length != 11 || !(/^1[3456789]\d{9}$/.test(eduConPhone))) {
       wx.showToast({
-        title: '请输入机构联系电话',
+        title: '请输入正确机构联系电话',
         icon: 'none',
         duration: 1500
       })
       return false;
-    } else if (eduConEmail == "") {
+    } else if (eduConEmail == "" || !(/^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/).test(eduConEmail)) {
       wx.showToast({
-        title: '请输入机构联系电话',
+        title: '请输入正确机构联系邮箱',
         icon: 'none',
         duration: 1500
       })
       return false;
-    } else if (eduBankName == "") {
+    } else if (eduBankName == 0) {
       wx.showToast({
-        title: '请输入机构开户行名称',
+        title: '请选择银行卡',
         icon: 'none',
         duration: 1500
       })
@@ -199,6 +207,9 @@ Page({
       }, function(res) {
         console.log(res)
         if (res.code == 1) {
+          wx.navigateBack({
+            detail: 1
+          })
           wx.showToast({
             title: res.message,
             icon: 'success',

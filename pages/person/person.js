@@ -16,7 +16,7 @@ Page({
     })
   },
   onLoad() {
-    
+
   },
   sureBtn() {
     var that = this;
@@ -32,17 +32,23 @@ Page({
       function(res) {
         wx.hideLoading()
         if (res.code == 1) {
-          wx.showToast({
-            title: res.message,
-            icon: 'none',
-          })
-          wx.removeStorage({
-            key: 'userinfo',
-            success: function(res) {
-              wx: wx.navigateTo({
-                url: '/pages/login/login',
-              })
-            },
+          wx.showModal({
+            title: '温馨提示',
+            content: '您，确定要退出吗？',
+            showCancel: true,
+            success(res) {
+              if (res.confirm) {
+                wx.removeStorage({
+                  key: 'userinfo',
+                  success: function(res) {
+                    wx: wx.navigateTo({
+                      url: '/pages/login/login',
+                    })
+                  },
+                })
+              } else if (res.cancel) {
+              }
+            }
           })
         } else {
           wx.showToast({

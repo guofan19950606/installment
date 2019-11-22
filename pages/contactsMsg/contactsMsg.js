@@ -10,13 +10,12 @@ Page({
     contactsMsg_person2: '', //联系人2
     contactsMsg_phone2: '', //手机号2
     contactsMsg_index2: 0, //关系2
-    contactsMsg_relation2: ['请选择', '亲属', '朋友', '配偶'],
     contactsMsg_person3: '', //联系人3
     contactsMsg_phone3: '', //手机号3
     contactsMsg_index3: 0, //关系3
-    contactsMsg_relation3: ['请选择', '亲属', '朋友', '配偶'],
     userNum: '',
-    remarks: ''
+    remarks: '',
+    contactsMsg_relation1: ['请选择', '亲属', '朋友', '配偶'],
   },
   //联系人查看
   checkcontant() {
@@ -33,7 +32,7 @@ Page({
     util.reGet('/contact/queryContact', {
       // userNum: '123456'
       userNum: this.data.userNum
-    }, function(res) {
+    }, function (res) {
       console.log(res)
       that.setData({
         contactsMsg_person: res.data.ciContact1,
@@ -48,6 +47,19 @@ Page({
         remarks: res.data.remarks
       })
       console.log(contactsMsg_person)
+      // if (that.data.contactsMsg_index == 3 || that.data.contactsMsg_index2 == 3 || that.data.contactsMsg_index3 == 3) {
+      //   let contactarr = that.data.contactsMsg_relation.slice(0, 3);
+      //   that.setData({
+      //     contactsMsg_relation: ['请选择', '亲属', '朋友', '配偶'],
+      //     contactsMsg_relation1: contactarr,
+      //   })
+      // } else if (that.data.contactsMsg_index != 3 && that.data.contactsMsg_index2 != 3 && that.data.contactsMsg_index3 != 3) {
+      //   that.setData({
+      //     contactsMsg_relation: ['请选择', '亲属', '朋友', '配偶'],
+      //     contactsMsg_relation1: ['请选择', '亲属', '朋友', '配偶'],
+      //   })
+      // }
+      that.selectRelation()
     })
   },
   handlerGobackClick(delta) {
@@ -78,9 +90,11 @@ Page({
     })
   },
   contactsMsg_relation(e) { //关系1
+    console.log(e)
     this.setData({
       contactsMsg_index: e.detail.value
     })
+    this.selectRelation();
   },
   contactsMsg_person2(e) { //联系人2
     this.setData({
@@ -96,6 +110,7 @@ Page({
     this.setData({
       contactsMsg_index2: e.detail.value
     })
+    this.selectRelation();
   },
   contactsMsg_person3(e) { //联系人3
     this.setData({
@@ -111,11 +126,13 @@ Page({
     this.setData({
       contactsMsg_index3: e.detail.value
     })
+    this.selectRelation();
   },
-  remarks(e) { //关系3
+  remarks(e) { //备注信息
     this.setData({
       remarks: e.detail.value
     })
+    console.log(e.detail.value)
   },
   // 联系人保存按钮
   contactsMsgBtn(e) {
@@ -129,6 +146,7 @@ Page({
     var contactsMsg_phone3 = this.data.contactsMsg_phone3;
     var contactsMsg_index3 = this.data.contactsMsg_index3;
     var remarks = this.data.remarks;
+    console.log(remarks)
     if (this.data.contactsMsg_person == '' || this.data.contactsMsg_person2 == '' || this.data.contactsMsg_person3 == '') {
       wx.showToast({
         title: '请输入姓名',
@@ -165,7 +183,8 @@ Page({
         icon: 'none'
       })
       return false
-    } else if (remarks == "") {
+    } else if (remarks == "" || remarks == null) {
+      console.log(remarks)
       wx.showToast({
         title: '备注信息不能为空',
         icon: 'none'
@@ -187,9 +206,12 @@ Page({
         ciPhone3: contactsMsg_phone3,
         ciRelationship3: contactsMsg_index3,
         remarks: remarks
-      }, function(res) {
+      }, function (res) {
         console.log(res)
         if (res.code == 1) {
+          wx.navigateBack({
+            detail: 1
+          })
           wx.showToast({
             title: "修改成功",
             icon: 'success',
@@ -210,11 +232,25 @@ Page({
       })
     }
   },
-
-  onShow: function() {
+  selectRelation() {
+    var that = this;
+    if (that.data.contactsMsg_index == 3 || that.data.contactsMsg_index2 == 3 || that.data.contactsMsg_index3 == 3) {
+      var contactarr = that.data.contactsMsg_relation.slice(0, 3);
+      that.setData({
+        contactsMsg_relation: ['请选择', '亲属', '朋友', '配偶'],
+        contactsMsg_relation1: contactarr,
+      })
+    } else if (that.data.contactsMsg_index != 3 && that.data.contactsMsg_index2 != 3 && that.data.contactsMsg_index3 != 3) {
+      that.setData({
+        contactsMsg_relation: ['请选择', '亲属', '朋友', '配偶'],
+        contactsMsg_relation1: ['请选择', '亲属', '朋友', '配偶'],
+      })
+    }
+  },
+  onShow: function () {
     // this.checkcontant()
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.data.userNum = options.userNum
     this.checkcontant()
   }

@@ -5,13 +5,14 @@
     <view class="search_Msg">
       <view class="search_Icon">
         <i class="iconfont icon-sousuo"></i>
-        <input class="app-fz24 search_Input" value="{{inputValue}}" bindinput='watchKeyWord' placeholder-style="font-size:24rpx;color:#828282;" placeholder="机构名称" bindconfirm="EnterInput" />
+        <input class="app-fz24 search_Input" value="{{inputValue}}" bindinput='watchKeyWord' placeholder-style="font-size:24rpx;color:#828282;" placeholder="机构名称" bindblur="EnterInput" />
       </view>
       <view class="search_close" wx:if="{{inputLength != 0}}" bindtap='clearInputEvent'>
         <i class="iconfont icon-guanbi app-fz20"></i>
       </view>
     </view>
   </view>
+
   <!-- taber切换 -->
   <view class="navigation_Cut">
     <view class="navigation_Content">
@@ -22,54 +23,53 @@
       </view>
     </view>
   </view>
+
   <!-- 列表 -->
   <view class="adminlist">
-    <scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="lower">
-      <view class="courselist" wx:if="{{currentId==1}}">
-        <view class="admin" wx:for="{{orgined}}" wx:key="{{index}}" wx:for-item="orgin">
-          <view class="adminbox">
-            <view class="{{!showMore? 'hiddenmore' : 'showmore'}}">
-              <view data-eduNum="{{orgin.eduNum}}" data-eduName="{{orgin.eduName}}" bindtap="checkcourse">
-                <view class="coursehead">{{orgin.eduName}}</view>
-                <view class="coursetitle">{{orgin.eduAddress}}</view>
+    <view class="courselist" wx:if="{{currentId==1}}">
+      <view class="admin" wx:for="{{orgined}}" wx:key="{{index}}" wx:for-item="orgin">
+        <view class="adminbox">
+          <view class="{{iditem != orgin.eduId ? 'hiddenmore' : 'showmore'}}" data-eduNum="{{orgin.eduNum}}" data-eduName="{{orgin.eduName}}" bindtap="checkcourse">
+            <view>
+              <view class="coursehead">{{orgin.eduName}}</view>
+              <view class="coursetitle">{{orgin.eduAddress}}</view>
+            </view>
+            <view class="adminone" wx:for="{{orgin.courses}}" wx:for-item="item" wx:for-index="idx" wx:key="" class=" {{idx>2 ? 'more-item' : ''}}">
+              <view class="admintwo">
+                <text>{{item.courseName}}课程</text>
+                <text>课程价格</text>
               </view>
-              <view class="adminone" wx:for="{{orgin.courses}}" wx:for-item="item" wx:for-index="idx" wx:key="" class=" {{idx>2 ? 'more-item' : ''}}">
-                <view class="admintwo">
-                  <text>{{item.courseName}}课程</text>
-                  <text>课程价格</text>
-                </view>
-                <view class="admintwo">
-                  <text>课时{{item.classHour}}月</text>
-                  <text class="price">￥{{item.classPrice}}</text>
-                </view>
+              <view class="admintwo">
+                <text>课时{{item.classHour}}月</text>
+                <text class="price">￥{{item.classPrice}}</text>
               </view>
             </view>
           </view>
           <!-- 查看更多 -->
-          <block wx:if="{{orgin.courses.length>2}}">
+          <block wx:if="{{orgin.courses.length>=4}}">
             <!-- <block> -->
-            <view wx:if="{{showMore}}" bindtap="listToggle" class="checkmore" data-iditem="{{orgin.eduId}}" data-index="{{index}}">
+            <view wx:if="{{iditem == orgin.eduId ? showMore : ''}}" bindtap='listToggle' class="checkmore" data-iditem="A">
               收起
               <icon class=" shishuofont iconfont icon-up"></icon>
             </view>
-            <view wx:else bindtap='listToggle' class="checkmore" data-iditem="{{orgin.eduId}}" data-index="{{index}}">
+            <view wx:else bindtap='listToggle' class="checkmore" data-iditem="{{orgin.eduId}}">
               查看更多
               <icon class=" shishuofont  iconfont icon-down"></icon>
             </view>
           </block>
         </view>
       </view>
-      <view class="courselist" wx:if="{{currentId==2}}">
-        <view class="admin" wx:for="{{willorgin}}" wx:key="{{index}}" wx:for-item="orgin">
-          <view class="adminbox" data-eduNum="{{orgin.eduNum}}" data-eduName="{{orgin.eduName}}" bindtap="checkcourse">
-            <view class="adminone">
-              <view class="coursehead">{{orgin.eduName}}</view>
-              <view class="coursetitle">{{orgin.eduAddress}}</view>
-              <view class="courseadd">未添加课程，请点击添加</view>
-            </view>
+    </view>
+    <view class="courselist" wx:if="{{currentId==2}}">
+      <view class="admin" wx:for="{{willorgin}}" wx:key="{{index}}" wx:for-item="orgin">
+        <view class="adminbox" data-eduNum="{{orgin.eduNum}}" data-eduName="{{orgin.eduName}}" bindtap="checkcourse">
+          <view class="adminone">
+            <view class="coursehead">{{orgin.eduName}}</view>
+            <view class="coursetitle">{{orgin.eduAddress}}</view>
+            <view class="courseadd">未添加课程，请点击添加</view>
           </view>
         </view>
       </view>
-    </scroll-view>
+    </view>
   </view>
 </view>

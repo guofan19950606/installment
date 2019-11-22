@@ -3,9 +3,12 @@
   display: flex;
   flex-flow: row nowrap;
 }
+
 .content{
-  flex: 1
-}
+  flex: 1;
+  background: #fff;
+  }
+
 .top_left {
   width: 28rpx;
   height: 100rpx;

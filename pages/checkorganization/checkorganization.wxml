@@ -3,12 +3,6 @@
 <view class="organization">
   <!-- 添加机构信息 -->
   <view class="contanier">
-
-  </view>
-</view>
-<view class="organization">
-  <!-- 添加机构信息 -->
-  <view class="contanier">
     <!-- <view class="students_list">
       <view>共借人名称</view>
       <input type="text" placeholder="请输入共借人名称" value="{{jobwaiting_name}}" />
@@ -37,9 +31,20 @@
       <view>机构联系邮箱</view>
       <input type="text" placeholder="请输入机构联系邮箱" value="{{eduConEmail}}" bindinput="org_eduConEmail" />
     </view>
-    <view class="students_list">
+    <!-- <view class="students_list">
       <view>机构开户行名称</view>
       <input type="text" placeholder="请输入机构开户行名称" value="{{eduBankName}}" bindinput="org_eduBankName" />
+    </view> -->
+        <view class="students_list">
+      <label class="name">开户行名称</label>
+      <picker bindchange="contactsMsg_relation" value="{{contactsMsg_index}}" range="{{contactsMsg_relation}}">
+        <view class="picker" data-id='{{contactsMsg_index}}'>
+          <text class="conindex">{{contactsMsg_relation[contactsMsg_index]}}</text>
+          <view>
+            <image src="/images/arrow_right.png"></image>
+          </view>
+        </view>
+      </picker>
     </view>
     <view class="students_list">
       <view>机构银行账户</view>
@@ -49,11 +54,15 @@
       <view class="canvasone">
         <image src="{{eduQrCodeUrl}}" bindtap='downloadImg' data-imgurl="{{eduQrCodeUrl}}"></image>
         <!-- <text class='downCode' bindtap='downloadCode'>下载</text> -->
+        <view style="width:1rpx;height:120rpx; background:#4462FE; margin-left:29rpx;"></view>
       </view>
       <view class="canvastwo">
+      
         <text class="cum">你的机构码</text>
         <text class="cummon">{{eduCode}}</text>
         <button class="copycum" bindtap='textPasteone'>复制机构码</button>
+     
+        <view class="line" style="width:2rpx;height:120rpx; background:#4462FE;"></view>
       </view>
       <view class="canvastwo">
         <text class="cum">你的校验码</text>

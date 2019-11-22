@@ -13,10 +13,18 @@ Page({
     eduConEmail: '', //机构联系人邮箱
     eduBankName: '', //机构开户行名称
     eduBankNum: '', //机构开户行账号
+    contactsMsg_index: 0, //开户行名称
+    contactsMsg_relation: ['请选择', '中国工商银行', '中国农业银行', '中国银行', '中国建设银行', '交通银行', '招商银行', '浦发银行', '中信银行', '中国光大银行', '华夏银行', '中国民生银行', '广发银行', '兴业银行', '平安银行', '浙商银行', '恒丰银行'],
   },
   org_eduName(e) {
     this.setData({
       eduName: e.detail.value
+    })
+  },
+  contactsMsg_relation(e) { //开户行名称
+    console.log(e)
+    this.setData({
+      contactsMsg_index: e.detail.value
     })
   },
   org_eduLegalPerson(e) {
@@ -76,6 +84,8 @@ Page({
     var eduConEmail = this.data.eduConEmail;
     var eduBankName = this.data.eduBankName;
     var eduBankNum = this.data.eduBankNum;
+    var contactsMsg_index = this.data.contactsMsg_index; //开户行名称下标
+    var contactsMsg_relation = this.data.contactsMsg_relation[contactsMsg_index] //开户行名称
     if (eduName == '') {
       wx.showToast({
         title: '请输入机构名称',
@@ -104,23 +114,31 @@ Page({
         duration: 1500
       })
       return false;
-    } else if (eduConPhone == "") {
+    } else if (eduConPhone == "" || eduConPhone.length != 11 || !(/^1[3456789]\d{9}$/.test(eduConPhone))) {
       wx.showToast({
-        title: '请输入机构联系电话',
+        title: '请输入正确的联系电话',
         icon: 'none',
         duration: 1500
       })
       return false;
-    } else if (eduConEmail == "") {
+    } else if (eduConEmail == "" || !(/^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/).test(eduConEmail)) {
       wx.showToast({
-        title: '请输入机构联系电话',
+        title: '请输入正确的邮箱',
         icon: 'none',
         duration: 1500
       })
       return false;
-    } else if (eduBankName == "") {
+      // } else if (eduBankName == "") {
+      //   wx.showToast({
+      //     title: '请输入机构开户行名称',
+      //     icon: 'none',
+      //     duration: 1500
+      //   })
+      //   return false;
+    }
+    else if (contactsMsg_index == 0) {
       wx.showToast({
-        title: '请输入机构开户行名称',
+        title: '请选择银行卡',
         icon: 'none',
         duration: 1500
       })
@@ -140,7 +158,7 @@ Page({
         eduAddress: eduAddress,
         eduConPhone: eduConPhone,
         eduConEmail: eduConEmail,
-        eduBankName: eduBankName,
+        eduBankName: contactsMsg_index,
         eduBankNum: eduBankNum,
       }, function (res) {
         console.log(JSON.stringify(res))
